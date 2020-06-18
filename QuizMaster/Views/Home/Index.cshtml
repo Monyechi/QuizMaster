@@ -1,8 +1,115 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .mySlides {
+        border: solid;
+        border-color: #0063ff;
+        border-width: 5px;
+    }
+    .slideShow {
+        position:relative;
+        top:40px;
+        left:23%;        
+    }
+</style>
+<body>
+    <div class="slideShow" style="max-width:500px">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <img class="mySlides" src="https://inclusiveschools.org/wp-content/uploads/2015/09/girl-with-sketch.png" style="width: 644px; height: 422px;">
+        <img class="mySlides" src="https://techcabal.com/wp-content/uploads/tc/2020/02/elearning.jpg" style="width:644px; height:422px;">
+        <img class="mySlides" src="https://thejournal.com/-/media/EDU/THEJournal/Images/2017/07/20170719girls2.jpg" style="width: 644px; height: 422px;">
+    </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000);
+        }
+    </script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*/////////////////////////////////////////////////////////////////////////////////////
+<head>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .mySlides {
+            display: none;
+            border: solid;
+            border-color: black;
+        }
+
+        .slideShow {
+            position: relative;
+            left: 20%;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="slideShow" style="max-width:500px">
+        <img class="mySlides" src="https://inclusiveschools.org/wp-content/uploads/2015/09/girl-with-sketch.png" style="width: 644px; height: 422px;">
+        <img class="mySlides" src="https://techcabal.com/wp-content/uploads/tc/2020/02/elearning.jpg" style="width:644px; height:422px;">
+        <img class="mySlides" src="https://thejournal.com/-/media/EDU/THEJournal/Images/2017/07/20170719girls2.jpg" style="width: 644px; height: 422px;">
+    </div>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+</body>
+</html>*@

@@ -15,7 +15,6 @@ using Microsoft.Extensions.Hosting;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using QuizMaster.ActionFilters;
-using QuizMaster.Hubs;
 
 namespace QuizMaster
 {

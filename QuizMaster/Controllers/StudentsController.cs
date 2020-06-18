@@ -38,7 +38,7 @@ namespace QuizMaster.Controllers
 
             var student = await _context.Students
                 .Include(s => s.IdentityUser)
-                .FirstOrDefaultAsync(m => m.StudentId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
                 return NotFound();
@@ -95,7 +95,7 @@ namespace QuizMaster.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("StudentId,FirstName,LastName,Grade,IdentityUserId")] Student student)
         {
-            if (id != student.StudentId)
+            if (id != student.Id)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace QuizMaster.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.StudentId))
+                    if (!StudentExists(student.Id))
                     {
                         return NotFound();
                     }
@@ -134,7 +134,7 @@ namespace QuizMaster.Controllers
 
             var student = await _context.Students
                 .Include(s => s.IdentityUser)
-                .FirstOrDefaultAsync(m => m.StudentId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace QuizMaster.Controllers
 
         private bool StudentExists(int id)
         {
-            return _context.Students.Any(e => e.StudentId == id);
+            return _context.Students.Any(e => e.Id == id);
         }
     }
 }

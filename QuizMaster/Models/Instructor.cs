@@ -11,7 +11,7 @@ namespace QuizMaster.Models
     public class Instructor : IdentityUser
     {
         [Key]
-        public int InstructorId { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         

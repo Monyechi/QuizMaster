@@ -11,20 +11,14 @@ namespace QuizMaster.Models
     public class Student : IdentityUser
     {
         [Key]
-        public int StudentId { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Grade { get; set; }
-        public virtual ICollection<Message> Messages { get; set; }
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
-        public IdentityUser IdentityUser { get; set; }
-
-        public Student()
-        {
-            Messages = new HashSet<Message>();
-        }
+        public IdentityUser IdentityUser { get; set; }        
        
     }
 }
