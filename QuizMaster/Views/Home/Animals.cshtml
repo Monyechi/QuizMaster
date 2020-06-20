@@ -1,0 +1,184 @@
+﻿<head>
+    <title>Quiz Master</title>   
+</head>
+<style>
+    .Quiz {
+        position: absolute;
+        top: 25%;
+        left:27%;
+        border: solid;
+        border-width: 5px;
+        border-color: #73b999;
+        width: 700px;
+        padding: 30px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        background-color: #73b999;
+        color: white;
+        
+    }
+    .QuizTitle {
+        font-family: 'Arial Rounded MT', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: white;
+        top: 0px;
+        left:40px;
+        font-size: 40px;
+        text-shadow: 2px 2px 8px #73b999;
+        position:relative;
+    }
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width:150px;
+        height:110px;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #73b999;
+        position:page;
+    }
+
+        .button1:hover {
+            background-color: #ff9898;
+            color: white;
+        }
+    .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #73b999;
+        position:page;
+    }
+
+        .button2:hover {
+            background-color: #ff9898;
+            color: white;
+        }
+    .button3 {
+        background-color: white;
+        color: black;
+        border: 2px solid #73b999;
+        position:page;
+    }
+
+        .button3:hover {
+            background-color: #ff9898;
+            color: white;
+        }
+    .button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #73b999;
+        position:page;
+    }
+
+        .button4:hover {
+            background-color: #ff9898;
+            color: white;
+        }
+    .category {
+        font-weight: 400;
+        font-style: italic;
+        position: relative;
+        top:-20px;
+        left:200px;
+    }    
+
+    .question {
+        font-family: Calibri;
+        font-size: 20px;
+        padding-bottom: 30px
+    }       
+</style>
+<body>
+    <div class="Quiz">
+    <p class="QuizTitle">
+        Quiz Master - Practice Quiz
+    </p>
+    <p class="category" id="category">
+    </p>
+    <p hidden id="difficulty">
+    </p>
+    <p class="question" id="question">
+    </p>
+    <button class="button button1" id="answer1">
+    </button>
+
+    <button class="button button2" id="answer2">
+    </button>
+    <button class="button button3" id="answer3">
+    </button>
+    <button class="button button4" id="answer4">
+    </button>
+        </div>
+</body>
+
+
+<script>
+    window.onload = sendApiRequest
+
+    //An asynchronous function to fetch data from the API.
+    async function sendApiRequest() {
+        let response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
+        console.log(response)
+        let data = await response.json()
+        console.log(data)
+        quizApp(data)
+    }
+
+    // A function to shuffle array of answers
+    Array.prototype.shuffle = function () {
+        let i = this.length, j, temp;
+        while (--i > 0) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+        return this;
+    }
+
+
+    //function that does something with the data received from the API. 
+    function quizApp(data) {
+        var correctAnswer = data.results[0].correct_answer;
+        var wrongAnswer1 = data.results[0].incorrect_answers[0];
+        var wrongAnswer2 = data.results[0].incorrect_answers[1];
+        var wrongAnswer3 = data.results[0].incorrect_answers[2];
+
+        let arr = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
+        let answers = arr.shuffle();
+
+        document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
+        document.querySelector("#difficulty").innerHTML = `Difficulty: ${data.results[0].difficulty}`
+        document.querySelector("#question").innerHTML = `Question: ${data.results[0].question}`
+        document.querySelector("#answer1").innerHTML = answers[0]
+        document.querySelector("#answer2").innerHTML = answers[1]
+        document.querySelector("#answer3").innerHTML = answers[2]
+        document.querySelector("#answer4").innerHTML = answers[3]
+
+        var RightAnswer = answers.find(element => element === correctAnswer);
+
+        let correctButton = document.querySelector("#answer1")
+
+        correctButton.addEventListener("click", () => {
+            alert("Correct! YOU ARE SO SMART!")
+            sendApiRequest()
+        })
+        
+    }
+
+    
+</script>

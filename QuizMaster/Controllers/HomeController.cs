@@ -35,5 +35,22 @@ namespace QuizMaster.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Animals()
+        {
+            return View();
+        }
+    public IActionResult History()
+        {
+            return View();
+        }
+    public IActionResult Math()
+        {
+            return View();
+        }
+    public IActionResult Science()
+        {
+            return View();
+        }
     }
 }
