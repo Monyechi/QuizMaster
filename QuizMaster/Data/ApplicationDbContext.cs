@@ -33,5 +33,6 @@ namespace QuizMaster.Data
         }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Student> Quiz { get; set; }
     }
 }

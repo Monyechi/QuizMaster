@@ -52,5 +52,6 @@ namespace QuizMaster.Controllers
         {
             return View();
         }
+
     }
 }

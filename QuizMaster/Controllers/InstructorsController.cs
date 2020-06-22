@@ -38,7 +38,7 @@ namespace QuizMaster.Controllers
 
             var instructor = await _context.Instructors
                 .Include(i => i.IdentityUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.InstructorId == id);
             if (instructor == null)
             {
                 return NotFound();
@@ -95,7 +95,7 @@ namespace QuizMaster.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("InstructorId,FirstName,LastName,IdentityUserId")] Instructor instructor)
         {
-            if (id != instructor.Id)
+            if (id != instructor.InstructorId)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace QuizMaster.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InstructorExists(instructor.Id))
+                    if (!InstructorExists(instructor.InstructorId))
                     {
                         return NotFound();
                     }
@@ -134,7 +134,7 @@ namespace QuizMaster.Controllers
 
             var instructor = await _context.Instructors
                 .Include(i => i.IdentityUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.InstructorId == id);
             if (instructor == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace QuizMaster.Controllers
 
         private bool InstructorExists(int id)
         {
-            return _context.Instructors.Any(e => e.Id == id);
+            return _context.Instructors.Any(e => e.InstructorId == id);
         }
     }
 }
