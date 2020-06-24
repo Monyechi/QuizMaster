@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuizMaster.Migrations
 {
-    public partial class initalMigration : Migration
+    public partial class newMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,6 +68,18 @@ namespace QuizMaster.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Quizzes", x => x.QuizID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WikiArticles",
+                columns: table => new
+                {
+                    ArticleId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WikiArticles", x => x.ArticleId);
                 });
 
             migrationBuilder.CreateTable(
@@ -203,7 +215,7 @@ namespace QuizMaster.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "985b31a8-245c-41b2-b55e-b8df19a3ce3f", "4b1c5d85-c76c-4f39-938f-6b765dcdbaed", "Student", "STUDENT" });
+                values: new object[] { "d2a6535e-529b-4993-903c-00f3b2f36b84", "8c908a7f-e3ea-4f1e-bf77-519458b76f94", "Student", "STUDENT" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -272,6 +284,9 @@ namespace QuizMaster.Migrations
 
             migrationBuilder.DropTable(
                 name: "Students");
+
+            migrationBuilder.DropTable(
+                name: "WikiArticles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -29,5 +29,6 @@ namespace QuizMaster.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<WikiArticle> WikiArticles { get; set; }
     }
 }
