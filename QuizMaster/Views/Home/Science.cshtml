@@ -1,139 +1,64 @@
-﻿<head>
-    <title>Quiz Master</title>
-</head>
-<style>
+﻿@model QuizMaster.Models.Quiz
 
-    .category {
-        font-weight: 400;
-        font-style: italic;
-        position: relative;
-        top: -20px;
-        left: 200px;
-    }
 
-    .question {
-        font-family: Calibri;
-        font-size: 20px;
-        padding-bottom: 30px
-    }
-    /* The container */
-    .container {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+    <body>
 
-        /* Hide the browser's default radio button */
-      
+        <form asp-action="Science">
+            <p>
+                @Html.DisplayFor(model => model.Question) <br /><select asp-for="@Model.SelectedAnswer" name="selectedAnswwer">
+                    <option selected="selected" value=""></option>
+                    <option value="@Html.DisplayFor(model => model.Answer1)">@Html.DisplayFor(model => model.Answer1)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer2)">@Html.DisplayFor(model => model.Answer2)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer3)">@Html.DisplayFor(model => model.Answer3)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer4)">@Html.DisplayFor(model => model.Answer4)</option>
+                </select><br />
+                <input type="submit">
+            </p>
+        </form>
 
-    /* Create a custom radio button */
-    .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-        border-radius: 50%;
-    }
 
-    /* On mouse-over, add a grey background color */
-    .container:hover input ~ .checkmark {
-        background-color: #ccc;
-    }
-
-    /* When the radio button is checked, add a blue background */
-    .container input:checked ~ .checkmark {
-        background-color: #2196F3;
-    }
-
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-
-    /* Show the indicator (dot/circle) when checked */
-    .container input:checked ~ .checkmark:after {
-        display: block;
-    }
-
-    /* Style the indicator (dot/circle) */
-    .container .checkmark:after {
-        top: 9px;
-        left: 9px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: white;
-    }
-
-</style>
-<body>
-
-    <form>
         <p class="category" id="category">
         </p>
+
         <p hidden id="difficulty">
         </p>
-        <p class="question" id="question">
-        </p>
-        <label class="container">
-            <b id="answer1"></b>
-            <input type="radio" id="answer1" name="radio">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">
-            <b id="answer2"></b>
-            <input type="radio" id="answer2" name="radio">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">
-            <b id="answer3"></b>
-            <input type="radio" id="answer2" name="radio">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">
-            <b id="answer4"></b>
-            <input type="radio" id="answer2" name="radio">
-            <span class="checkmark"></span>
-            <input type="submit" value="Submit">
-        </label>
-    </form>
 
+        @*<div class="quiz">
+            <form asp-action="Science">
+                <p class="question" id="question">
+                    @Html.DisplayFor(model => model.Question)
+                </p>
+                <label class="container">
+                    <b id="answer1">@Html.DisplayFor(model => model.Answer1)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="answer1" name="answer1">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer2">@Html.DisplayFor(model => model.Answer2)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="answer2" name="Answer2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer3">@Html.DisplayFor(model => model.Answer3)</b>
+                    <input type="radio" asp-for="@Model.SelectedAnswer" id="Answer3" name="Answer3">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer4">@Html.DisplayFor(model => model.Answer4)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="Answer4" name="Answer4">
+                    <span class="checkmark"></span>
+                </label>
+                <a href="#" onclick="this.parentNode.submit();">
+                    <p class="submit">
+                        SUBMIT
+                    </p>
+                </a>
+            </form>
+        </div>*@
 
-    @*<div class="Quiz">
-            <p class="QuizTitle">
-                Quiz Master - Practice Quiz
-            </p>
-            <p class="category" id="category">
-            </p>
-            <p hidden id="difficulty">
-            </p>
-            <p class="question" id="question">
-            </p>
-            <button class="button button1" id="answer1">
-            </button>
+    </body>
 
-            <button class="button button2" id="answer2">
-            </button>
-            <button class="button button3" id="answer3">
-            </button>
-            <button class="button button4" id="answer4">
-            </button>
-        </div>
-    *@
-</body>
-
-<script>
+@*<script>
     window.onload = sendApiRequest
 
     //An asynchronous function to fetch data from the API.
@@ -182,10 +107,17 @@
 
         correctButton.addEventListener("click", () => {
             alert("Correct! YOU ARE SO SMART!")
-            sendApiRequest()
+            for (i = 0; i < 2; i++) {
+                sendApiRequest()
+            }
         })
 
     }
+</script>*@
 
-
-</script>
+<head>
+    <title>Quiz Master</title>
+</head>
+<style>
+   
+</style>

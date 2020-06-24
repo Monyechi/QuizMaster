@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using QuizMaster.Data;
 using QuizMaster.Models;
+using Xceed.Wpf.Toolkit;
 
 namespace QuizMaster.Controllers
 {
@@ -50,8 +54,80 @@ namespace QuizMaster.Controllers
         }
     public IActionResult Science()
         {
-            return View();
+            Quiz quiz = new Quiz();
+            GetQuiz(quiz);
+            return View(quiz);
         }
 
+        [HttpPost]
+        public IActionResult Science(string selectedAnswwer, Quiz quiz)
+        {
+            selectedAnswwer.ToString();
+            if (selectedAnswwer == quiz.CorrectAnswer)
+            {
+                return RedirectToAction(nameof(Correct));
+            }
+            else
+            {
+                return RedirectToAction(nameof(Wrong));
+            }
+            
+        }
+
+        public string[] GetQuiz(Quiz quiz)
+        {
+            
+
+            WebClient client = new WebClient();
+            string stringer = client.DownloadString("https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple");
+            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(stringer);
+
+            quiz.Question = dobj.results[0].question;
+            quiz.Category = dobj.results[0].category;
+            quiz.Difficulty = dobj.results[0].Difficulty;
+            quiz.CorrectAnswer = dobj.results[0].correct_answer;
+            quiz.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
+            quiz.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
+            quiz.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
+
+            string[] answers = new string[4];
+            answers[0] = quiz.CorrectAnswer;
+            answers[1] = quiz.WrongAnswer1;
+            answers[2] = quiz.WrongAnswer2;
+            answers[3] = quiz.WrongAnswer3;
+
+            var shuffledArray = ShuffleArray(answers);
+            quiz.Answer1 = shuffledArray[0];
+            quiz.Answer2 = shuffledArray[1];
+            quiz.Answer3 = shuffledArray[2];
+            quiz.Answer4 = shuffledArray[3];
+
+            return shuffledArray;
+        }
+        public static string[] ShuffleArray(string[] array)
+        {
+            int n = array.Length;
+            Random rand = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                swap(array, i, i + rand.Next(n - i));
+            }
+            return array;
+        }
+        public static void swap(string[] array, int a, int b)
+        {
+            string temp = array[a];
+            array[a] = array[b];
+            array[b] = temp;
+        }
+        public IActionResult Correct()
+        {
+            return View();
+        }
+        public IActionResult Wrong()
+        {
+            return View();
+        }
     }
 }

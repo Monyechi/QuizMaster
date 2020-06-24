@@ -21,18 +21,11 @@ namespace QuizMaster.Data
             .HasData(
             new IdentityRole
             {
-                Name = "Instructor",
-                NormalizedName = "INSTRUCTOR"
-            },
-             new IdentityRole
-            {
                 Name = "Student",
                 NormalizedName = "STUDENT"
-            }
-            );
+            });
         }
-        public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Student> Quiz { get; set; }
+        public DbSet<Quiz> Quizzes { get; set; }
     }
 }
