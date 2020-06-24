@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using QuizMaster.Data;
 using QuizMaster.Models;
-using Xceed.Wpf.Toolkit;
 
 namespace QuizMaster.Controllers
 {
@@ -44,15 +40,15 @@ namespace QuizMaster.Controllers
         {
             return View();
         }
-    public IActionResult History()
+        public IActionResult History()
         {
             return View();
         }
-    public IActionResult Math()
+        public IActionResult Math()
         {
             return View();
         }
-    public IActionResult Science()
+        public IActionResult Science()
         {
             Quiz quiz = new Quiz();
             GetQuiz(quiz);
@@ -71,12 +67,11 @@ namespace QuizMaster.Controllers
             {
                 return RedirectToAction(nameof(Wrong));
             }
-            
+
         }
 
         public string[] GetQuiz(Quiz quiz)
         {
-            
 
             WebClient client = new WebClient();
             string stringer = client.DownloadString("https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple");

@@ -1,0 +1,155 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .mySlides {
+        border: solid;
+        border-color: #73b999;
+        border-width: 5px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+
+    .slideShow {
+        position: relative;
+        bottom: 0px;
+        left: 21.5%;
+    }
+
+    .logo {
+        position: absolute;
+        left: 0px;
+    }
+
+    .text1 {
+        position: relative;
+        left: 25px;
+        width: 3000px;
+        color: black;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 40px;
+    }
+
+    .tile1 {
+        position: absolute;
+        left: -70%;
+        bottom: 29.5%;
+        width: 290px;
+        color: white;
+        background-color: #73b999;
+        font-size: 30px;
+        padding: 10px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+
+    .tile2 {
+        position: relative;
+        right: -5%;
+        bottom: -39px;
+        width: 270px;
+        color: white;
+        background-color: #73b999;
+        font-size: 30px;
+        padding: 10px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+
+    .tile3 {
+        position: relative;
+        left: 76%;
+        bottom: 127px;
+        width: 270px;
+        color: white;
+        background-color: #73b999;
+        font-size: 30px;
+        padding: 10px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+
+    .tile4 {
+        position: relative;
+        left: 150%;
+        bottom: 290px;
+        width: 280px;
+        color: white;
+        background-color: #73b999;
+        font-size: 30px;
+        padding: 10px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+
+    .logo2 {
+        width: 120px;
+        height: 141px;
+    }
+</style>
+<body>
+    <img class="logo" src="https://pbs.twimg.com/media/EaxRbxlXkAAuvyf?format=png&amp;name=240x240" alt="Image" />
+
+
+    <div class="slideShow" style="max-width:500px">
+        <p class="text1">Quiz Master Student Learning Center</p>
+        <img class="mySlides" src="https://inclusiveschools.org/wp-content/uploads/2015/09/girl-with-sketch.png" style="width: 644px; height: 422px;">
+        <img class="mySlides" src="https://techcabal.com/wp-content/uploads/tc/2020/02/elearning.jpg" style="width:644px; height:422px;">
+        <img class="mySlides" src="https://thejournal.com/-/media/EDU/THEJournal/Images/2017/07/20170719girls2.jpg" style="width: 644px; height: 422px;">
+
+        <div class="tile1">
+            <a asp-action="Science">
+                <u>Science</u>
+                <img class="logo2" src="http://clipart-library.com/images_k/scientist-clipart-transparent/scientist-clipart-transparent-7.png" />
+            </a>
+        </div>
+
+        <div class="tile2">
+            <a asp-action="Math">
+                <u>Math</u>
+                <img class="logo2" src="http://clipart-library.com/image_gallery/n1162813.png" />
+            </a>
+        </div>
+
+        <div class="tile3">
+            <a asp-action="History">
+                <u>History</u>
+                <img class="logo2" src="http://clipart-library.com/img/1145201.png" />
+            </a>
+        </div>
+        <div class="tile4">
+            <a asp-action="Animals">
+                <u>Animals</u>
+                <img class="logo2" src="http://clipart-library.com/images/di9Krzx4T.png" />
+            </a>
+        </div>
+    </div>
+
+
+
+    <script>var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000);
+        }</script>
+</body>

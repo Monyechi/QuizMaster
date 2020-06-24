@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +25,16 @@ namespace QuizMaster.Controllers
         // GET: Students
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Students.Include(s => s.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var student = _context.Students.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (student == null)
+            {
+                return RedirectToAction("Create");
+            }
+
+            return View();
         }
 
         // GET: Students/Details/5
@@ -59,10 +68,12 @@ namespace QuizMaster.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentId,FirstName,LastName,Grade,IdentityUserId")] Student student)
+        public async Task<IActionResult> Create([Bind("StudentId,FirstName,LastName,DisplayName,ProfileAvatar,Grade,IdentityUserId")] Student student)
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                student.IdentityUserId = userId;
                 _context.Add(student);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -93,7 +104,7 @@ namespace QuizMaster.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StudentId,FirstName,LastName,Grade,IdentityUserId")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("StudentId,FirstName,LastName,DisplayName,ProfileAvatar,Grade,IdentityUserId")] Student student)
         {
             if (id != student.StudentId)
             {

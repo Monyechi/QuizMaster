@@ -48,8 +48,8 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "305b6465-fc4d-4e85-b36e-da39f184fdbb",
-                            ConcurrencyStamp = "56583e5f-7bf5-401b-b09b-5b672fdf7e60",
+                            Id = "985b31a8-245c-41b2-b55e-b8df19a3ce3f",
+                            ConcurrencyStamp = "4b1c5d85-c76c-4f39-938f-6b765dcdbaed",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });
@@ -89,10 +89,6 @@ namespace QuizMaster.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -146,8 +142,6 @@ namespace QuizMaster.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -280,7 +274,10 @@ namespace QuizMaster.Migrations
 
             modelBuilder.Entity("QuizMaster.Models.Student", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.Property<int>("StudentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -300,12 +297,11 @@ namespace QuizMaster.Migrations
                     b.Property<string>("ProfileAvatar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
+                    b.HasKey("StudentId");
 
                     b.HasIndex("IdentityUserId");
 
-                    b.HasDiscriminator().HasValue("Student");
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

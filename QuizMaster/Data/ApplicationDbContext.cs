@@ -23,8 +23,10 @@ namespace QuizMaster.Data
             {
                 Name = "Student",
                 NormalizedName = "STUDENT"
-            });
+            }
+            );
         }
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
     }

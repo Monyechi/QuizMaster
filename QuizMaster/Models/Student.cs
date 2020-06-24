@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace QuizMaster.Models
 {
-    public class Student : IdentityUser
+    public class Student
     {
         [Key]
-        public int Id { get; set; }
         public int StudentId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -21,7 +20,6 @@ namespace QuizMaster.Models
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
-        public IdentityUser IdentityUser { get; set; }        
-       
+        public IdentityUser IdentityUser { get; set; }
     }
 }

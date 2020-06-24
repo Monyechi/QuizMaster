@@ -1,8 +1,6 @@
 ﻿@page
 @model RegisterModel
-@{
-    ViewData["Title"] = "Register";
-}
+@{ ViewData["Title"] = "Register"; }
 <style>
     .LoginBox {
         border: solid;
@@ -15,15 +13,17 @@
         border-top-right-radius: 50px;
         border-top-left-radius: 50px;
         padding-left: 40px;
-        background-color:white;
+        background-color: white;
     }
-.LoginBox1{
-        position:relative;
-        left:35%;
-        top:20px;
+
+    .LoginBox1 {
+        position: relative;
+        left: 35%;
+        top: 20px;
     }
-body{
-}
+
+    body {
+    }
 </style>
 
 
@@ -31,7 +31,7 @@ body{
 <div class="LoginBox1">
     <div class="LoginBox">
         <h1>@ViewData["Title"]</h1>
-        <div >
+        <div>
             <div class="col-md-10">
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <h4>Create a new account.</h4>
@@ -52,7 +52,7 @@ body{
                         <input asp-for="Input.ConfirmPassword" class="form-control" />
                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
+                    <div hidden class="form-group">
                         <label asp-for="Input.Role"></label>
                         <select asp-for="Input.Role" class="form-control" asp-items="@Model.Roles"></select>
                         <span asp-validation-for="Input.Role" class="text-danger"></span>
@@ -61,38 +61,32 @@ body{
                 </form>
             </div>
         </div>
-        </div>
+    </div>
 
-        <div class="col-md-6 col-md-offset-2">
-            <section>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
 
-                @{
-                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                    {
-                        @*<div>
+            @{ if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                { @*<div>
                             <p>
                                 There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
                                 for details on setting up this ASP.NET application to support logging in via external services.
                             </p>
-                        </div>*@
-                    }
-                    else
-                    {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </form>
-                    }
-                }
-            </section>
-        </div>
+                        </div>*@ }
+            else
+            {
+<form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+    <div>
+        <p>
+            @foreach (var provider in Model.ExternalLogins)
+            {
+<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>}
+        </p>
     </div>
+</form> } }
+        </section>
+    </div>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

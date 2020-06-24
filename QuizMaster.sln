@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster", "QuizMaster\QuizMaster.csproj", "{E51B78E1-F8FB-4066-A597-739E7FCE5908}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster", "QuizMaster\QuizMaster.csproj", "{A11A8DE1-46D7-45E8-8BE8-C41327D371F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E51B78E1-F8FB-4066-A597-739E7FCE5908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E51B78E1-F8FB-4066-A597-739E7FCE5908}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E51B78E1-F8FB-4066-A597-739E7FCE5908}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E51B78E1-F8FB-4066-A597-739E7FCE5908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11A8DE1-46D7-45E8-8BE8-C41327D371F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11A8DE1-46D7-45E8-8BE8-C41327D371F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11A8DE1-46D7-45E8-8BE8-C41327D371F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11A8DE1-46D7-45E8-8BE8-C41327D371F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {ABB26F5F-8E7F-408B-908B-A8787C42426A}
+		SolutionGuid = {3014A5A8-2CD1-495B-9E06-349E89CDF920}
 	EndGlobalSection
 EndGlobal

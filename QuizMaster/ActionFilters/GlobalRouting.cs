@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuizMaster.ActionFilters
 {
-    public class GlobalRouting: IActionFilter
+    public class GlobalRouting : IActionFilter
     {
         private readonly ClaimsPrincipal _claimsPrincipal;
         public GlobalRouting(ClaimsPrincipal claimsPrincipal)
@@ -20,15 +20,10 @@ namespace QuizMaster.ActionFilters
             var controller = context.RouteData.Values["controller"];
             if (controller.Equals("Home"))
             {
-                if (_claimsPrincipal.IsInRole("Customer"))
+                if (_claimsPrincipal.IsInRole("Student"))
                 {
                     context.Result = new RedirectToActionResult("Index",
-                    "Customers", null);
-                }
-                else if (_claimsPrincipal.IsInRole("Employee"))
-                {
-                    context.Result = new RedirectToActionResult("Index",
-                    "Employees", null);
+                    "Students", null);
                 }
             }
         }

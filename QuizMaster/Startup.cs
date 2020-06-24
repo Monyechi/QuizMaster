@@ -30,15 +30,15 @@ namespace QuizMaster
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
-            options.SignIn.RequireConfirmedAccount = false)
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultUI()
-            .AddDefaultTokenProviders();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddSignalR();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => 
+            options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
 
             services.AddScoped<ClaimsPrincipal>(s =>s.GetService<IHttpContextAccessor>().HttpContext.User);
             services.AddControllers(config =>
@@ -71,8 +71,6 @@ namespace QuizMaster
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            
 
             app.UseEndpoints(endpoints =>
             {
