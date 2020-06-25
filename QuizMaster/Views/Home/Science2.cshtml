@@ -1,0 +1,123 @@
+﻿@model QuizMaster.Models.Quiz
+
+
+    <body>
+
+        <form asp-action="Science">
+            <p>
+                @Html.DisplayFor(model => model.Question) <br /><select asp-for="@Model.SelectedAnswer" name="selectedAnswwer">
+                    <option selected="selected" value=""></option>
+                    <option value="@Html.DisplayFor(model => model.Answer1)">@Html.DisplayFor(model => model.Answer1)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer2)">@Html.DisplayFor(model => model.Answer2)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer3)">@Html.DisplayFor(model => model.Answer3)</option>
+                    <option value="@Html.DisplayFor(model => model.Answer4)">@Html.DisplayFor(model => model.Answer4)</option>
+                </select><br />
+                <input type="submit">
+            </p>
+        </form>
+
+
+        <p class="category" id="category">
+        </p>
+
+        <p hidden id="difficulty">
+        </p>
+
+        @*<div class="quiz">
+            <form asp-action="Science">
+                <p class="question" id="question">
+                    @Html.DisplayFor(model => model.Question)
+                </p>
+                <label class="container">
+                    <b id="answer1">@Html.DisplayFor(model => model.Answer1)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="answer1" name="answer1">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer2">@Html.DisplayFor(model => model.Answer2)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="answer2" name="Answer2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer3">@Html.DisplayFor(model => model.Answer3)</b>
+                    <input type="radio" asp-for="@Model.SelectedAnswer" id="Answer3" name="Answer3">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <b id="answer4">@Html.DisplayFor(model => model.Answer4)</b>
+                    <input asp-for="@Model.SelectedAnswer" type="radio" id="Answer4" name="Answer4">
+                    <span class="checkmark"></span>
+                </label>
+                <a href="#" onclick="this.parentNode.submit();">
+                    <p class="submit">
+                        SUBMIT
+                    </p>
+                </a>
+            </form>
+        </div>*@
+
+    </body>
+
+@*<script>
+    window.onload = sendApiRequest
+
+    //An asynchronous function to fetch data from the API.
+    async function sendApiRequest() {
+        let response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
+        console.log(response)
+        let data = await response.json()
+        console.log(data)
+        quizApp(data)
+    }
+
+    // A function to shuffle array of answers
+    Array.prototype.shuffle = function () {
+        let i = this.length, j, temp;
+        while (--i > 0) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+        return this;
+    }
+
+
+    //function that does something with the data received from the API.
+    function quizApp(data) {
+        var correctAnswer = data.results[0].correct_answer;
+        var wrongAnswer1 = data.results[0].incorrect_answers[0];
+        var wrongAnswer2 = data.results[0].incorrect_answers[1];
+        var wrongAnswer3 = data.results[0].incorrect_answers[2];
+
+        let arr = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
+        let answers = arr.shuffle();
+
+        document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
+        document.querySelector("#difficulty").innerHTML = `Difficulty: ${data.results[0].difficulty}`
+        document.querySelector("#question").innerHTML = `Question: ${data.results[0].question}`
+        document.querySelector("#answer1").innerHTML = answers[0]
+        document.querySelector("#answer2").innerHTML = answers[1]
+        document.querySelector("#answer3").innerHTML = answers[2]
+        document.querySelector("#answer4").innerHTML = answers[3]
+
+        var RightAnswer = answers.find(element => element === correctAnswer);
+
+        let correctButton = document.querySelector("#answer1")
+
+        correctButton.addEventListener("click", () => {
+            alert("Correct! YOU ARE SO SMART!")
+            for (i = 0; i < 2; i++) {
+                sendApiRequest()
+            }
+        })
+
+    }
+</script>*@
+
+<head>
+    <title>Quiz Master</title>
+</head>
+<style>
+   
+</style>

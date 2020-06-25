@@ -48,8 +48,8 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d2a6535e-529b-4993-903c-00f3b2f36b84",
-                            ConcurrencyStamp = "8c908a7f-e3ea-4f1e-bf77-519458b76f94",
+                            Id = "e4918e6f-c528-46a0-bce6-66550ba2437d",
+                            ConcurrencyStamp = "9d692e12-c613-4228-8cb3-9ab3c72a4926",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });
@@ -302,18 +302,6 @@ namespace QuizMaster.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("QuizMaster.Models.WikiArticle", b =>
-                {
-                    b.Property<int>("ArticleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("ArticleId");
-
-                    b.ToTable("WikiArticles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
