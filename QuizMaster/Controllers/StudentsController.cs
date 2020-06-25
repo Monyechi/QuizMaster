@@ -169,5 +169,9 @@ namespace QuizMaster.Controllers
         {
             return _context.Students.Any(e => e.StudentId == id);
         }
+        public IActionResult SearchArticle()
+        {
+            return View();
+        }
     }
 }

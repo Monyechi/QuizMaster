@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Times Search</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Spectral&display=swap" rel="stylesheet">
+    <link href="~/css/styles.css" rel='stylesheet'>
+    <link href="~/css/reset.css" rel='stylesheet'>
+    <style>
+        .homeButton {
+            position: fixed;
+            left: 0px;            
+            width: 90px; 
+            height: 90px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    
+    <a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index"><img class="homeButton" 
+     src="https://lh3.googleusercontent.com/sjY0YeMySx9TQOFFJgbRa-hJlFICKIKy2sELJB1z4MCwKRxlXNkhvS5G72ZHvK4sqA" alt="Home"/></a>
+    <button onclick="topFunction()" id="topBtn" title="Go back to top">
+        <span style="font-size: 1.25em; color:#fff;">
+            <i class="fas fa-arrow-up"></i>
+        </span>
+    </button>
+
+    <main id="content-wrapper">
+        <section id="search-form" class="section-card">
+            <div class="card-heading">
+                <h3 class="card-title">
+                    <span style="font-size: 1.25em; color:#fff;">
+                        <i class="far fa-newspaper"></i>
+                    </span>Article Search
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <fieldset>
+                        <div class="form-row">
+                            <label>Search Term:</label>
+                            <input class="input-field" id="searchTerm" type="text" onfocus="this.value=''" placeholder="Enter search terms here...">
+                        </div>
+                        <div class="form-row">
+                            <label>Numbers of Records to Retrieve:</label>
+                            <input class="input-field" id="numResults" type="number" step="10" placeholder="10" min="10">
+                        </div>
+                        <div class="form-row">
+                            <label>Start Year:</label>
+                            <input class="input-field" id="startYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2000">
+                        </div>
+                        <div class="form-row">
+                            <label>End Year:</label>
+                            <input class="input-field" id="endYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2010">
+                        </div>
+                    </fieldset>
+                    <div id="buttons">
+                        <button id="search" class="button" type="submit">
+                            <span style="font-size: 1em; color:#fff; opacity: 0.9;">
+                                <i class="fas fa-search"></i>
+                            </span>Search
+                        </button>
+                        <button id="reset" class="button" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="search-results" class="section-card">
+            <div class="card-heading">
+                <h3 class="card-title">
+                    <span style="font-size: 1.25em; color:#fff;">
+                        <i class="far fa-list-alt"></i>
+                    </span>Top Articles
+                </h3>
+            </div>
+            <div class="card-body">
+                <div id="resultsDiv"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2e1826f24a.js"></script>
+    <script src="~/js/logic.js"></script>
+
+</body>
+
+</html>
+<script src="~/js/logic.js" asp-append-version="true"></script>
+

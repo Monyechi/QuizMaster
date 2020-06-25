@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Spectral', serif;
+  background-image: url('../images/nyt-moonlanding-front-page-fade.png');
+}
+
+header {
+  position: relative;
+  background-color: #f1f1f1;
+  min-height: 6em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #e2e2e2;
+}
+
+#logo-wrapper {
+  position: absolute;
+  top: 1em;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+#logo {
+  padding: 0.5em 0;
+}
+
+#content-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1em;
+}
+
+i {
+  margin-right: 0.25em; 
+}
+
+.section-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2em 3em 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 2em;
+}
+
+.card-heading {
+  padding: 0.25em 0;
+  background: #73b999; 
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  text-align: left;
+  color: #fff;
+  padding: 0 1em;
+}
+
+.card-body {
+  padding: 4em 6em;
+  padding-bottom: 5em;
+  border-top: 2px solid #898989;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2em;
+}
+  
+input {
+  outline: none;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  font-size: 1em;
+  font-family: inherit;
+  }
+
+label {
+  font-size: 1.1em;
+}
+
+.input-field {
+  background: #faf9fa;
+  line-height: 3em;
+  border: 2px solid #e2e2e2;
+  border-radius: 5px;
+  padding: 0 1em;
+  font-size: 1em;
+  color: #898989;
+}
+
+.button {
+    display: inline-block;
+    min-width: 8em;
+    margin-right: 0.5em;
+    padding: 0.75em;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-family: inherit;
+    color: #fff;
+    background-color: #73b999;
+    border: 2px #73b999;
+    border-radius: 10px;
+}
+
+    .button:hover {
+        color: #fff;
+        background-color: #6288a5;       
+    }
+
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 99;
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 1.5em;
+  border: none;
+  outline: none;
+  background-color: red;
+  opacity: 0.6;
+  color: white;
+  cursor: pointer;
+  padding-top: 0.25em;
+  padding-left: 0.55em; 
+  border-radius: 10px;
+}
+
+#topBtn:hover {
+  background-color: #555;
+}
+
+#icon {
+  padding-right: 0.5em;
+}
+
+a:link {
+  text-decoration: none;  
+}
+
+h2 {
+color: #000;
+font-size: 1.75em;
+font-family: 'IBM Plex Serif', serif;
+font-weight: bold;
+font-style: oblique;
+}
+
+p {
+  padding: 1em 0 1.5em 0; 
+  border-bottom: 1px solid #000;
+  font-size: 1.25em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+  background-color: #e6e6e6;
+  color: #898989;
+  text-align: center;
+  border-top: 2px solid #e2e2e2; 
+}
+
+@media only screen and (max-width: 600px) {
+ 
+  header {
+    position: static;
+    width: 100%;
+    margin: none;
+    overflow: hidden
+  }
+
+  #logo-wrapper {
+    padding: 0 0.5em;
+    overflow: hidden;
+  }
+
+  #logo {
+    padding: 5px none;
+    overflow: hidden;
+  }
+
+  #content-wrapper, .card-title, .card-body {
+    position: static;
+    margin: none;
+    padding: none;
+    overflow: hidden;
+    min-width: 300px;
+  }
+
+  .button {
+    position: static;
+    margin: 0 0 0.5em 0;
+    padding: none;
+    overflow: hidden;
+  }
+} 
