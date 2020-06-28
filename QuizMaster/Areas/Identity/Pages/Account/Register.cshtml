@@ -1,28 +1,40 @@
 ﻿@page
 @model RegisterModel
 @{ ViewData["Title"] = "Register"; }
+
+
 <style>
     .LoginBox {
-        border: solid;
-        border-width: 3px;
-        border-color: #73b999;
         width: 300px;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
+        padding-top: 20px;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
         border-top-right-radius: 50px;
         border-top-left-radius: 50px;
         padding-left: 40px;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0.45);
+        color:aliceblue;
     }
 
     .LoginBox1 {
-        position: relative;
-        left: 35%;
-        top: 20px;
+        position: absolute;
+        left: 40%;
+        top: 20%;
     }
 
     body {
+        background-image: url("https://pbs.twimg.com/media/EbZ9psfXkAEZUjB?format=jpg&name=large");
+        background-size: cover;
+    }
+    .text1{
+        color:aliceblue;
+    }
+    .homeButton {
+        position: fixed;
+        left: 0px;
+        width: 90px;
+        height: 90px;
     }
 </style>
 
@@ -30,11 +42,11 @@
 
 <div class="LoginBox1">
     <div class="LoginBox">
-        <h1>@ViewData["Title"]</h1>
+        <h1 class="text1">@ViewData["Title"]</h1>
         <div>
             <div class="col-md-10">
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <h4>Create a new account.</h4>
+                    <h4 class="text1">Create a new account.</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">

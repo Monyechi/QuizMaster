@@ -1,16 +1,36 @@
 ﻿@model QuizMaster.Models.Student
+<style>
+    .create {
+        position: absolute;
+        top: 15%;
+        left: 40%;
+        width: 300px;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        padding-left: 40px;
+        background-color: rgba(0, 0, 0, 0.45);
+        color: aliceblue;
+    }
+    body {
+        background-image: url("https://pbs.twimg.com/media/EbZ9psfXkAEZUjB?format=jpg&name=large");
+        background-size: cover;
+    }
 
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    .text1 {
+        color: aliceblue;
+    }
+</style>
+<div class="create">
+<h1 class="text1">Create</h1>
 
-<h1>Create</h1>
-
-<h4>Student</h4>
+<h4 class="text1">Profile</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -27,18 +47,8 @@
                 <label asp-for="DisplayName" class="control-label"></label>
                 <input asp-for="DisplayName" class="form-control" />
                 <span asp-validation-for="DisplayName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProfileAvatar" class="control-label"></label>
-                <input asp-for="ProfileAvatar" class="form-control" />
-                <span asp-validation-for="ProfileAvatar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Grade" class="control-label"></label>
-                <input asp-for="Grade" class="form-control" />
-                <span asp-validation-for="Grade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div>            
+            <div hidden class="form-group">
                 <label asp-for="IdentityUserId" class="control-label"></label>
                 <select asp-for="IdentityUserId" class ="form-control" asp-items="ViewBag.IdentityUserId"></select>
             </div>
@@ -48,7 +58,7 @@
         </form>
     </div>
 </div>
-
+    </div>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

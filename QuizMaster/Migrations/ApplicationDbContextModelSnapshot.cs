@@ -48,8 +48,8 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e4918e6f-c528-46a0-bce6-66550ba2437d",
-                            ConcurrencyStamp = "9d692e12-c613-4228-8cb3-9ab3c72a4926",
+                            Id = "0c72e7f0-4c0a-4dfa-ba12-9a7edebcb9a0",
+                            ConcurrencyStamp = "5bde96d5-f6e7-45d8-a5d1-fad21526a04e",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });

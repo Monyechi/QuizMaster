@@ -7,9 +7,6 @@
         position: fixed;
         top: 15%;
         left: 40%;
-        border: solid;
-        border-width: 3px;
-        border-color: #73b999;
         width: 300px;
         padding-bottom: 10px;
         border-bottom-left-radius: 50px;
@@ -17,7 +14,15 @@
         border-top-right-radius: 50px;
         border-top-left-radius: 50px;
         padding-left: 40px;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0.45);
+        color:aliceblue;
+    }
+    body {
+        background-image: url("https://pbs.twimg.com/media/EbZ9psfXkAEZUjB?format=jpg&name=large");
+        background-size: cover;
+    }
+    .text1 {
+        color: aliceblue;
     }
 </style>
 
@@ -51,13 +56,13 @@
                         <button type="submit" class="btn btn-primary">Log in</button>
                     </div>
                     <div class="form-group">
-                        <p>
+                        <p hidden>
                             <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                         </p>
-                        <p>
+                        <p hidden>
                             <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                         </p>
-                        <p>
+                        <p hidden>
                             <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                         </p>
                     </div>
@@ -81,7 +86,7 @@
                                     <p>
                                         @foreach (var provider in Model.ExternalLogins)
                                         {
-                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>}
+                        <button type="submit" class="text1" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>}
                                     </p>
                                 </div>
                             </form> } }

@@ -203,7 +203,7 @@ namespace QuizMaster.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "e4918e6f-c528-46a0-bce6-66550ba2437d", "9d692e12-c613-4228-8cb3-9ab3c72a4926", "Student", "STUDENT" });
+                values: new object[] { "0c72e7f0-4c0a-4dfa-ba12-9a7edebcb9a0", "5bde96d5-f6e7-45d8-a5d1-fad21526a04e", "Student", "STUDENT" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

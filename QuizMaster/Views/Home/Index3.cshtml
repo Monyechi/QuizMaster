@@ -21,12 +21,6 @@
     <link rel="stylesheet" href="css/hero-slider-style.css">                              <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
     <link rel="stylesheet" href="css/magnific-popup.css">                                 <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Spectral&display=swap" rel="stylesheet">
-    <link href="~/css/styles.css" rel='stylesheet'>
-    <link href="~/css/reset.css" rel='stylesheet'>
-
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/js/site.js" asp-append-version="true"></script>
 
@@ -187,79 +181,58 @@
             <li>
                 <div class="cd-full-width">
 
-                    @*<a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index">
-                        <img class="homeButton"
-                             src="https://lh3.googleusercontent.com/sjY0YeMySx9TQOFFJgbRa-hJlFICKIKy2sELJB1z4MCwKRxlXNkhvS5G72ZHvK4sqA" alt="Home" />
-                    </a>*@
-                    @*<button onclick="topFunction()" id="topBtn" title="Go back to top">
-                        <span style="font-size: 1.25em; color:#fff;">
-                            <i class="fas fa-arrow-up"></i>
-                        </span>
-                    </button>*@
+                    <div class="container-fluid js-tm-page-content" data-page-no="5">
 
-                    <main id="content-wrapper">
-                        <section id="search-form" class="section-card">
-                            <div class="card-heading">
-                                <h3 class="card-title">
-                                    <span style="font-size: 1.25em; color:#fff;">
-                                        <i class="far fa-newspaper"></i>
-                                    </span>Article Search
-                                </h3>
+                        <div class="tm-contact-page">
+
+                            <div class="row">
+
+                                <div class="col-xs-12">
+
+                                    <h2 class="tm-section-title">Contact Us</h2>
+                                    <p class="tm-text tm-font-w-400 m-b-3">Pellentesque in quam iaculis erat iaculis lacinia. Donec sagittis sapien odio, a sodales velit elementum nec. Donec feugiat purus a bibendum hendreit.</p>
+
+                                </div>
+
                             </div>
-                            <div class="card-body">
-                                <form method="POST">
-                                    <fieldset>
-                                        <div class="form-row">
-                                            <label>Search Term:</label>
-                                            <input class="input-field" id="searchTerm" type="text" onfocus="this.value=''" placeholder="Enter search terms here...">
+
+                            <!-- contact form -->
+                            <div class="row">
+                                <form action="index.html" method="post" class="tm-contact-form">
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="form-group">
+                                            <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Your Name" required />
                                         </div>
-                                        <div class="form-row">
-                                            <label>Numbers of Records to Retrieve:</label>
-                                            <input class="input-field" id="numResults" type="number" step="10" placeholder="10" min="10">
+                                        <div class="form-group">
+                                            <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Your Email" required />
                                         </div>
-                                        <div class="form-row">
-                                            <label>Start Year:</label>
-                                            <input class="input-field" id="startYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2000">
+                                        <div class="form-group">
+                                            <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject" required />
                                         </div>
-                                        <div class="form-row">
-                                            <label>End Year:</label>
-                                            <input class="input-field" id="endYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2010">
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="form-group">
+                                            <textarea id="contact_message" name="contact_message" class="form-control" rows="5" placeholder="Your message" required></textarea>
                                         </div>
-                                    </fieldset>
-                                    <div id="buttons">
-                                        <button id="search" class="button" type="submit">
-                                            <span style="font-size: 1em; color:#fff; opacity: 0.9;">
-                                                <i class="fas fa-search"></i>
-                                            </span>Search
-                                        </button>
-                                        <button id="reset" class="button" type="reset">Reset</button>
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="pull-xs-right tm-submit-btn">Submit</button>
                                     </div>
                                 </form>
                             </div>
-                        </section>
-                        <section id="search-results" class="section-card">
-                            <div class="card-heading">
-                                <h3 class="card-title">
-                                    <span style="font-size: 1.25em; color:#fff;">
-                                        <i class="far fa-list-alt"></i>
-                                    </span>Top Articles
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div id="resultsDiv"></div>
-                            </div>
-                        </section>
-                    </main>
 
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                    <script src="https://kit.fontawesome.com/2e1826f24a.js"></script>
-                    <script src="~/js/logic.js"></script>
+                        </div>
+
+                    </div>
 
                 </div> <!-- .cd-full-width -->
             </li>
         </ul> <!-- .cd-hero-slider -->
 
-        @*<footer class="tm-footer">
+        <footer class="tm-footer">
 
             <div class="tm-social-icons-container">
                 <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
@@ -271,7 +244,7 @@
 
             <p hidden class="tm-copyright-text">Copyright &copy; 2016 Your Company - Design: <a href="https://plus.google.com/+templatemo" target="_blank">Templatemo</a></p>
 
-        </footer>*@
+        </footer>
 
     </div> <!-- .cd-hero -->
     <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
@@ -351,9 +324,24 @@
     <script>
         window.onload = sendApiRequest
 
+        let correctAnswer;
+        let wrongAnswer1;
+        let wrongAnswer2;
+        let wrongAnswer3;
+
+        let answer1;
+        let answer2;
+        let answer3;
+        let answer4;
+
+        let answers;
+        let shuffledAnswers;
+        let RightAnswer;
+        let response;
+
         //An asynchronous function to fetch data from the API.
         async function sendApiRequest() {
-            let response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
+            response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
             console.log(response)
             let data = await response.json()
             console.log(data)
@@ -377,28 +365,25 @@
 
 
         function quizApp(data) {
-            var correctAnswer = data.results[0].correct_answer;
-            let wrongAnswer1 = data.results[0].incorrect_answers[0];
-            let wrongAnswer2 = data.results[0].incorrect_answers[1];
-            let wrongAnswer3 = data.results[0].incorrect_answers[2];
+            correctAnswer = data.results[0].correct_answer;
+            wrongAnswer1 = data.results[0].incorrect_answers[0];
+            wrongAnswer2 = data.results[0].incorrect_answers[1];
+            wrongAnswer3 = data.results[0].incorrect_answers[2];
 
-            let answer1;
-            let answer2;
-            let answer3;
-            let answer4;
+           
 
-            let answers = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
-            let shuffledAnswers = answers.shuffle();
+            answers = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
+            shuffledAnswers = answers.shuffle();
 
-            answer1 = shuffledAnswers[0];
-            answer2 = shuffledAnswers[1];
-            answer3 = shuffledAnswers[2];
-            answer4 = shuffledAnswers[3];
+             answer1 = shuffledAnswers[0];
+             answer2 = shuffledAnswers[1];
+             answer3 = shuffledAnswers[2];
+             answer4 = shuffledAnswers[3];
 
-            let button1 = document.querySelector("#answer1");
-            let button2 = document.querySelector("#answer2");
-            let button3 = document.querySelector("#answer3");
-            let button4 = document.querySelector("#answer4");
+             var button1 = document.querySelector("#answer1");
+             var button2 = document.querySelector("#answer2");
+             var button3 = document.querySelector("#answer3");
+             var button4 = document.querySelector("#answer4");
 
 
             document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
@@ -409,59 +394,102 @@
             document.querySelector("#answer3").innerHTML = answer3
             document.querySelector("#answer4").innerHTML = answer4
 
-            var RightAnswer = answers.find(element => element === correctAnswer);
+            RightAnswer = answers.find(element => element === correctAnswer);
 
-            button1.addEventListener("click", () => {
-                compareAnswer(answer1)
-            })
+            //button1.addEventListener("click", () => {
+            //    if (answer1 === RightAnswer) {
+            //    alert("Correct! YOU ARE SO SMART!")
+            //    sendApiRequest();
+            //    }    
+                
+            //})
 
-            button2.addEventListener("click", () => {
-                compareAnswer(answer2)
-            })
+            //button2.addEventListener("click", () => {
+            //    compareAnswer(answer2);
+            //})
 
-            button3.addEventListener("click", () => {
-                compareAnswer(answer3)
-            })
+            //button3.addEventListener("click", () => {
+            //    compareAnswer(answer3);
+            //})
 
-            button4.addEventListener("click", () => {
-                compareAnswer(answer4)
-            })
+            //button4.addEventListener("click", () => {
+            //    compareAnswer(answer4);
+            //})       
 
-            function compareAnswer(answer) {
-                if (answer === RightAnswer) {
-                    alert("Correct! YOU ARE SO SMART!")                    
+            
+
+            function compareAnswer1() {
+                if (answer1 === RightAnswer) {
+                    alert("Correct! YOU ARE SO SMART!")
+                    sendApiRequest();
                 }
-                else if (answer !== RightAnswer) {
-                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)                    
+                else if (answer1 !== RightAnswer) {
+                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)
                 }
-                sendApiRequest();
+            }
+            function compareAnswer2() {
+                if (answer1 === RightAnswer) {
+                    alert("Correct! YOU ARE SO SMART!")
+                    sendApiRequest();
+                }
+                else if (answer1 !== RightAnswer) {
+                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)
+                }
+            }
+            function compareAnswer3() {
+                if (answer1 === RightAnswer) {
+                    alert("Correct! YOU ARE SO SMART!")
+                    sendApiRequest();
+                }
+                else if (answer1 !== RightAnswer) {
+                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)
+                }
+            }
+            function compareAnswer4() {
+                if (answer1 === RightAnswer) {
+                    alert("Correct! YOU ARE SO SMART!")
+                    sendApiRequest();
+                }
+                else if (answer1 !== RightAnswer) {
+                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)
+                }
             }
 
         }
+
+        
+
+      
+
+        
     </script>
 
     <style>
         .Quiz {
             position: relative;
             top: 0px;
-            left: 0%;
+            left: 20%;
+            border: solid;
+            border-width: 5px;
+            border-color: #73b999;
             width: 720px;
             padding: 30px;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.35);
+            background-color: #73b999;
             color: white;
             height: 400px;
         }
 
         .QuizTitle {
             font-family: 'Arial Rounded MT', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: rgba(0, 0, 0, 0.77);
+            color: white;
             top: 0px;
             left: 40px;
             font-size: 40px;
+            text-shadow: 2px 2px 8px #73b999;
             position: relative;
         }
 
@@ -482,8 +510,9 @@
         }
 
         .button1 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
+            background-color: white;
+            color: black;
+            border: 2px solid #73b999;
             position: relative;
             left: 0px;
             bottom: 0px;
@@ -495,8 +524,9 @@
             }
 
         .button2 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
+            background-color: white;
+            color: black;
+            border: 2px solid #73b999;
             position: relative;
             bottom: 0px;
         }
@@ -507,8 +537,9 @@
             }
 
         .button3 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
+            background-color: white;
+            color: black;
+            border: 2px solid #73b999;
             position: relative;
             bottom: 0px;
         }
@@ -519,8 +550,9 @@
             }
 
         .button4 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
+            background-color: white;
+            color: black;
+            border: 2px solid #73b999;
             position: relative;
             bottom: 0px;
         }
@@ -540,8 +572,70 @@
 
         .question {
             font-family: Calibri;
-            padding-bottom: 30px;
-            color: rgba(0, 0, 0, 0.77);
+            padding-bottom: 30px
+        }
+        /* The container */
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        /* Create a custom radio button */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
         }
     </style>
 

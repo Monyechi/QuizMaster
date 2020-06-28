@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using QuizMaster.Data;
 using QuizMaster.Models;
 
 namespace QuizMaster.Controllers
@@ -14,6 +15,7 @@ namespace QuizMaster.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -50,9 +52,8 @@ namespace QuizMaster.Controllers
         }
         public IActionResult Science()
         {
-            Quiz quiz = new Quiz();
-            GetQuiz(quiz);
-            return View(quiz);
+            
+            return View();
         }
 
         [HttpPost]
@@ -70,12 +71,13 @@ namespace QuizMaster.Controllers
 
         }
 
-        public string[] GetQuiz(Quiz quiz)
+        public void GetQuiz()
         {
+            Quiz quiz = new Quiz();
 
             WebClient client = new WebClient();
-            string stringer = client.DownloadString("https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(stringer);
+            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple");
+            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
 
             quiz.Question = dobj.results[0].question;
             quiz.Category = dobj.results[0].category;
@@ -97,7 +99,9 @@ namespace QuizMaster.Controllers
             quiz.Answer3 = shuffledArray[2];
             quiz.Answer4 = shuffledArray[3];
 
-            return shuffledArray;
+            
+
+            
         }
         public static string[] ShuffleArray(string[] array)
         {
@@ -124,5 +128,6 @@ namespace QuizMaster.Controllers
         {
             return View();
         }
+
     }
 }

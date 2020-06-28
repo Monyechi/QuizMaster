@@ -16,33 +16,29 @@
         position:absolute;
         left:40%;
         }
-        body {
-            background-color: #fff;
-            background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
-            background-size: 100% 1.2em;
-        }
+      
     </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <a class="navbarLogo" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img class="quizMasterLogo" src="https://pbs.twimg.com/media/Eazli8OWkAMrM4T?format=png&name=240x240" />
+        <nav hidden class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div hidden class="collapse navbar-collapse" id="navbarColor01">
+                <a hidden class="navbarLogo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img hidden class="quizMasterLogo" src="https://pbs.twimg.com/media/Eazli8OWkAMrM4T?format=png&name=240x240" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button hidden class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div hidden class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav mr-auto">
+                    <ul hidden class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li hidden class="nav-item">
+                            <a hidden class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>                       
                         </ul>
                     </div>
