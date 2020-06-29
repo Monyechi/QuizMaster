@@ -77,6 +77,25 @@
             <!-- autoplay -->
             <li class="selected">
                 <div class="cd-full-width">
+                    <style>
+                        .logout {
+                            position: absolute;
+                            left: 35px;
+                            bottom: 15px;
+                            z-index: 2;
+                        }
+
+                        .img {
+                        }
+
+                        .button2 {
+                            background-color: rgba(255, 255, 255, 0.55);
+                        }
+                    </style>
+                    <form class="logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button class="button2" type="submit"><img class="img" src="https://cdn.onlinewebfonts.com/svg/img_356268.png" width="57" height="62" /></button>
+                    </form>
+
                     <div class="container-fluid js-tm-page-content tm-page-1" data-page-no="1">
 
                         <div class="row">
@@ -131,7 +150,7 @@
 
                     <div class="" data-page-no="3">
                         <div>
-                            
+
                             <div class="tile">
                                 <p class="easy"><a asp-action="ScienceEasy">EASY</a></p>
                             </div>
@@ -157,8 +176,9 @@
                     <div class="history">
                         <style>
                             .history {
-                                position:absolute;
+                                position: absolute;
                             }
+
                             .historyBg {
                                 position: absolute;
                                 background-image: url(https://images.unsplash.com/photo-1486150702851-498e985c2efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
@@ -183,13 +203,13 @@
             @*<----------------------------------------------Article-Search--------------------------------------------------------->*@
             <li>
                 <div class="cd-full-width">
-                <style>
-                    .articleText{
-                        position:relative;
-                        top:40%;
-                        color:black;
-                    }
-                </style>
+                    <style>
+                        .articleText {
+                            position: relative;
+                            top: 40%;
+                            color: black;
+                        }
+                    </style>
                     <div>
                         <p class="articleText">Click Here To Search For Aricles</p>
                         <a asp-action="SearchArticle">
@@ -200,20 +220,19 @@
                 </div> <!-- .cd-full-width -->
             </li>
         </ul> <!-- .cd-hero-slider -->
-
         @*<footer class="tm-footer">
 
-            <div class="tm-social-icons-container">
-                <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
-            </div>
+                <div class="tm-social-icons-container">
+                    <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
+                    <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+                </div>
 
-            <p hidden class="tm-copyright-text">Copyright &copy; 2016 Your Company - Design: <a href="https://plus.google.com/+templatemo" target="_blank">Templatemo</a></p>
+                <p hidden class="tm-copyright-text">Copyright &copy; 2016 Your Company - Design: <a href="https://plus.google.com/+templatemo" target="_blank">Templatemo</a></p>
 
-        </footer>*@
+            </footer>*@
 
     </div> <!-- .cd-hero -->
     <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->

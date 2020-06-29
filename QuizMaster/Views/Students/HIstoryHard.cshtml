@@ -8,7 +8,7 @@
 
     <div class="Quiz">
         <p class="QuizTitle">
-            Science Practice Quiz
+            History Practice Quiz
         </p>
         <p class="category" id="category">
         </p>
@@ -30,96 +30,97 @@
 </body>
 
 
-<script>window.onload = sendApiRequest
+<script>
+    window.onload = sendApiRequest
 
-        //An asynchronous function to fetch data from the API.
-        async function sendApiRequest() {
-            let response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
-            console.log(response)
-            let data = await response.json()
-            console.log(data)
-            quizApp(data)
+    //An asynchronous function to fetch data from the API.
+    async function sendApiRequest() {
+        let response = await fetch(`https://opentdb.com/api.php?amount=1&category=23&difficulty=hard&type=multiple`);
+        console.log(response)
+        let data = await response.json()
+        console.log(data)
+        quizApp(data)
+    }
+
+    // A function to shuffle array of answers
+    Array.prototype.shuffle = function () {
+        let i = this.length, j, temp;
+        while (--i > 0) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+        return this;
+    }
+
+
+    //function that does something with the data received from the API.
+
+
+    function quizApp(data) {
+        var correctAnswer = data.results[0].correct_answer;
+        let wrongAnswer1 = data.results[0].incorrect_answers[0];
+        let wrongAnswer2 = data.results[0].incorrect_answers[1];
+        let wrongAnswer3 = data.results[0].incorrect_answers[2];
+
+        let answer1;
+        let answer2;
+        let answer3;
+        let answer4;
+
+        let answers = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
+        let shuffledAnswers = answers.shuffle();
+
+        answer1 = shuffledAnswers[0];
+        answer2 = shuffledAnswers[1];
+        answer3 = shuffledAnswers[2];
+        answer4 = shuffledAnswers[3];
+
+        let button1 = document.querySelector("#answer1");
+        let button2 = document.querySelector("#answer2");
+        let button3 = document.querySelector("#answer3");
+        let button4 = document.querySelector("#answer4");
+
+
+        document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
+        document.querySelector("#difficulty").innerHTML = `Difficulty: ${data.results[0].difficulty}`
+        document.querySelector("#question").innerHTML = `Question: ${data.results[0].question}`
+        document.querySelector("#answer1").innerHTML = answer1
+        document.querySelector("#answer2").innerHTML = answer2
+        document.querySelector("#answer3").innerHTML = answer3
+        document.querySelector("#answer4").innerHTML = answer4
+
+        var RightAnswer = answers.find(element => element === correctAnswer);
+
+        button1.addEventListener("click", () => {
+            compareAnswer(answer1)
+        })
+
+        button2.addEventListener("click", () => {
+            compareAnswer(answer2)
+        })
+
+        button3.addEventListener("click", () => {
+            compareAnswer(answer3)
+        })
+
+        button4.addEventListener("click", () => {
+            compareAnswer(answer4)
+        })
+
+        function compareAnswer(answer) {
+            if (answer === RightAnswer) {
+                alert("Correct! YOU ARE SO SMART!")
+                location.reload()
+            }
+            else if (answer !== RightAnswer) {
+                alert("You are so Wrong! The Correct Answer is " + RightAnswer)
+                location.reload()
+            }
         }
 
-        // A function to shuffle array of answers
-        Array.prototype.shuffle = function () {
-            let i = this.length, j, temp;
-            while (--i > 0) {
-                j = Math.floor(Math.random() * (i + 1));
-                temp = this[j];
-                this[j] = this[i];
-                this[i] = temp;
-            }
-            return this;
-        }
-
-
-        //function that does something with the data received from the API.
-
-
-        function quizApp(data) {
-            var correctAnswer = data.results[0].correct_answer;
-            let wrongAnswer1 = data.results[0].incorrect_answers[0];
-            let wrongAnswer2 = data.results[0].incorrect_answers[1];
-            let wrongAnswer3 = data.results[0].incorrect_answers[2];
-
-            let answer1;
-            let answer2;
-            let answer3;
-            let answer4;
-
-            let answers = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
-            let shuffledAnswers = answers.shuffle();
-
-            answer1 = shuffledAnswers[0];
-            answer2 = shuffledAnswers[1];
-            answer3 = shuffledAnswers[2];
-            answer4 = shuffledAnswers[3];
-
-            let button1 = document.querySelector("#answer1");
-            let button2 = document.querySelector("#answer2");
-            let button3 = document.querySelector("#answer3");
-            let button4 = document.querySelector("#answer4");
-
-
-            document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
-            document.querySelector("#difficulty").innerHTML = `Difficulty: ${data.results[0].difficulty}`
-            document.querySelector("#question").innerHTML = `Question: ${data.results[0].question}`
-            document.querySelector("#answer1").innerHTML = answer1
-            document.querySelector("#answer2").innerHTML = answer2
-            document.querySelector("#answer3").innerHTML = answer3
-            document.querySelector("#answer4").innerHTML = answer4
-
-            var RightAnswer = answers.find(element => element === correctAnswer);
-
-            button1.addEventListener("click", () => {
-                compareAnswer(answer1)
-            })
-
-            button2.addEventListener("click", () => {
-                compareAnswer(answer2)
-            })
-
-            button3.addEventListener("click", () => {
-                compareAnswer(answer3)
-            })
-
-            button4.addEventListener("click", () => {
-                compareAnswer(answer4)
-            })
-
-            function compareAnswer(answer) {
-                if (answer === RightAnswer) {
-                    alert("Correct! YOU ARE SO SMART!")
-                    location.reload()
-                }
-                else if (answer !== RightAnswer) {
-                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)
-                    location.reload()
-                }
-            }
-
-        }</script>
+    }</script>
 
 <style>
     .Quiz {
