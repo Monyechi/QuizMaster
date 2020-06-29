@@ -57,16 +57,16 @@
                             <a class="nav-link" href="#0" data-no="1">Intro <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="2">About</a>
+                            <a class="nav-link" href="#0" data-no="2">Science Quiz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="3">Gallery</a>
+                            <a class="nav-link" href="#0" data-no="3">Math Quiz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="4">Video</a>
+                            <a class="nav-link" href="#0" data-no="4">History Quiz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="5">Contact</a>
+                            <a class="nav-link" href="#0" data-no="5">Article Search</a>
                         </li>
                     </ul>
                 </div>
@@ -95,165 +95,107 @@
                     </div>
                 </div> <!-- .cd-full-width -->
             </li>
+            @*<----------------------------------------------Science-Quiz--------------------------------------------------------->*@
 
             <li>
                 <div class="cd-full-width">
 
                     <div class="" data-page-no="2">
-                        <div class="Quiz">
-                            <h1 class="QuizTitle">
-                                Quiz Master - Practice Quiz
-                            </h1>
-                            <h5 hidden class="category" id="category">
-                            </h5>
-                            <p hidden id="difficulty">
-                            </p>
-                            <h3 class="question" id="question">
-                            </h3>
-                            <button class="button button1" id="answer1" onclick="compareAnswer1()">
-                            </button>
-
-                            <button class="button button2" id="answer2" onclick="compareAnswer2()">
-                            </button>
-                            <button class="button button3" id="answer3" onclick="compareAnswer3()">
-                            </button>
-                            <button class="button button4" id="answer4" onclick="compareAnswer4()">
-                            </button>
+                        <div>
+                            <style>
+                                .easy {
+                                    font-size: 25px;
+                                    font-weight: 800;
+                                }
+                            </style>
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceEasy">EASY</a></p>
+                            </div>
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceMedium">Medium</a></p>
+                            </div>
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceHard">Hard</a></p>
+                            </div>
                         </div>
                     </div>
 
                 </div> <!-- .cd-full-width -->
 
             </li>
-
+            @*<----------------------------------------------Math-Quiz--------------------------------------------------------->*@
             <!-- Page 3 -->
             <li>
 
                 <div class="cd-full-width">
 
-                    <div class="container-fluid js-tm-page-content" data-page-no="3">
-
-                        <div class="row tm-img-gallery">
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-01.jpg">
-                                    <img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
+                    <div class="" data-page-no="3">
+                        <div>
+                            
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceEasy">EASY</a></p>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-02.jpg">
-                                    <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceMedium">Medium</a></p>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-03.jpg">
-                                    <img src="img/tm-img-03-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-04.jpg">
-                                    <img src="img/tm-img-04-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-05.jpg">
-                                    <img src="img/tm-img-05-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                <a href="img/tm-img-06.jpg">
-                                    <img src="img/tm-img-06-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                </a>
+                            <div class="tile">
+                                <p class="easy"><a asp-action="ScienceHard">Hard</a></p>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
 
             </li>
 
+            @*<----------------------------------------------History-Quiz--------------------------------------------------------->*@
             <li>
                 <!-- class="cd-bg-video" -->
-                <div class="js-tm-page-content" data-page-no="4">
+                <div class="cd-full-width" data-page-no="4">
+                    <div class="historyBg"></div>
 
-                    <div class="cd-bg-video-wrapper" data-video="video/sunset-loop">
-                        <!-- video element will be loaded using jQuery -->
-                    </div> <!-- .cd-bg-video-wrapper -->
-
+                    <div class="history">
+                        <style>
+                            .history {
+                                position:absolute;
+                            }
+                            .historyBg {
+                                position: absolute;
+                                background-image: url(https://images.unsplash.com/photo-1486150702851-498e985c2efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
+                                background-size: cover;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        </style>
+                        <div class="tile">
+                            <p class="easy"><a asp-action="ScienceEasy">EASY</a></p>
+                        </div>
+                        <div class="tile">
+                            <p class="easy"><a asp-action="ScienceMedium">Medium</a></p>
+                        </div>
+                        <div class="tile">
+                            <p class="easy"><a asp-action="ScienceHard">Hard</a></p>
+                        </div>
+                    </div>
                 </div>
 
             </li>
-
+            @*<----------------------------------------------Article-Search--------------------------------------------------------->*@
             <li>
                 <div class="cd-full-width">
-
-                    @*<a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index">
-                        <img class="homeButton"
-                             src="https://lh3.googleusercontent.com/sjY0YeMySx9TQOFFJgbRa-hJlFICKIKy2sELJB1z4MCwKRxlXNkhvS5G72ZHvK4sqA" alt="Home" />
-                    </a>*@
-                    @*<button onclick="topFunction()" id="topBtn" title="Go back to top">
-                        <span style="font-size: 1.25em; color:#fff;">
-                            <i class="fas fa-arrow-up"></i>
-                        </span>
-                    </button>*@
-
-                    <main id="content-wrapper">
-                        <section id="search-form" class="section-card">
-                            <div class="card-heading">
-                                <h3 class="card-title">
-                                    <span style="font-size: 1.25em; color:#fff;">
-                                        <i class="far fa-newspaper"></i>
-                                    </span>Article Search
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <form method="POST">
-                                    <fieldset>
-                                        <div class="form-row">
-                                            <label>Search Term:</label>
-                                            <input class="input-field" id="searchTerm" type="text" onfocus="this.value=''" placeholder="Enter search terms here...">
-                                        </div>
-                                        <div class="form-row">
-                                            <label>Numbers of Records to Retrieve:</label>
-                                            <input class="input-field" id="numResults" type="number" step="10" placeholder="10" min="10">
-                                        </div>
-                                        <div class="form-row">
-                                            <label>Start Year:</label>
-                                            <input class="input-field" id="startYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2000">
-                                        </div>
-                                        <div class="form-row">
-                                            <label>End Year:</label>
-                                            <input class="input-field" id="endYear" type="text" onfocus="this.value=''" placeholder="Optional, e.g. 2010">
-                                        </div>
-                                    </fieldset>
-                                    <div id="buttons">
-                                        <button id="search" class="button" type="submit">
-                                            <span style="font-size: 1em; color:#fff; opacity: 0.9;">
-                                                <i class="fas fa-search"></i>
-                                            </span>Search
-                                        </button>
-                                        <button id="reset" class="button" type="reset">Reset</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </section>
-                        <section id="search-results" class="section-card">
-                            <div class="card-heading">
-                                <h3 class="card-title">
-                                    <span style="font-size: 1.25em; color:#fff;">
-                                        <i class="far fa-list-alt"></i>
-                                    </span>Top Articles
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div id="resultsDiv"></div>
-                            </div>
-                        </section>
-                    </main>
-
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                    <script src="https://kit.fontawesome.com/2e1826f24a.js"></script>
-                    <script src="~/js/logic.js"></script>
+                <style>
+                    .articleText{
+                        position:relative;
+                        top:40%;
+                        color:black;
+                    }
+                </style>
+                    <div>
+                        <p class="articleText">Click Here To Search For Aricles</p>
+                        <a asp-action="SearchArticle">
+                            <p><img src="https://i.ya-webdesign.com/images/search-bar-png-6.png" /></p>
+                        </a>
+                    </div>
 
                 </div> <!-- .cd-full-width -->
             </li>
@@ -348,202 +290,6 @@
         });
 
     </script>
-    <script>
-        window.onload = sendApiRequest
-
-        //An asynchronous function to fetch data from the API.
-        async function sendApiRequest() {
-            let response = await fetch(`https://opentdb.com/api.php?amount=1&category=17&difficulty=hard&type=multiple`);
-            console.log(response)
-            let data = await response.json()
-            console.log(data)
-            quizApp(data)
-        }
-
-        // A function to shuffle array of answers
-        Array.prototype.shuffle = function () {
-            let i = this.length, j, temp;
-            while (--i > 0) {
-                j = Math.floor(Math.random() * (i + 1));
-                temp = this[j];
-                this[j] = this[i];
-                this[i] = temp;
-            }
-            return this;
-        }
-
-
-        //function that does something with the data received from the API.
-
-
-        function quizApp(data) {
-            var correctAnswer = data.results[0].correct_answer;
-            let wrongAnswer1 = data.results[0].incorrect_answers[0];
-            let wrongAnswer2 = data.results[0].incorrect_answers[1];
-            let wrongAnswer3 = data.results[0].incorrect_answers[2];
-
-            let answer1;
-            let answer2;
-            let answer3;
-            let answer4;
-
-            let answers = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3];
-            let shuffledAnswers = answers.shuffle();
-
-            answer1 = shuffledAnswers[0];
-            answer2 = shuffledAnswers[1];
-            answer3 = shuffledAnswers[2];
-            answer4 = shuffledAnswers[3];
-
-            let button1 = document.querySelector("#answer1");
-            let button2 = document.querySelector("#answer2");
-            let button3 = document.querySelector("#answer3");
-            let button4 = document.querySelector("#answer4");
-
-
-            document.querySelector("#category").innerHTML = `Category: ${data.results[0].category}`
-            document.querySelector("#difficulty").innerHTML = `Difficulty: ${data.results[0].difficulty}`
-            document.querySelector("#question").innerHTML = `Question: ${data.results[0].question}`
-            document.querySelector("#answer1").innerHTML = answer1
-            document.querySelector("#answer2").innerHTML = answer2
-            document.querySelector("#answer3").innerHTML = answer3
-            document.querySelector("#answer4").innerHTML = answer4
-
-            var RightAnswer = answers.find(element => element === correctAnswer);
-
-            button1.addEventListener("click", () => {
-                compareAnswer(answer1)
-            })
-
-            button2.addEventListener("click", () => {
-                compareAnswer(answer2)
-            })
-
-            button3.addEventListener("click", () => {
-                compareAnswer(answer3)
-            })
-
-            button4.addEventListener("click", () => {
-                compareAnswer(answer4)
-            })
-
-            function compareAnswer(answer) {
-                if (answer === RightAnswer) {
-                    alert("Correct! YOU ARE SO SMART!")                    
-                }
-                else if (answer !== RightAnswer) {
-                    alert("You are so Wrong! The Correct Answer is " + RightAnswer)                    
-                }
-                sendApiRequest();
-            }
-
-        }
-    </script>
-
-    <style>
-        .Quiz {
-            position: relative;
-            top: 0px;
-            left: 0%;
-            width: 720px;
-            padding: 30px;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            border-top-left-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.35);
-            color: white;
-            height: 400px;
-        }
-
-        .QuizTitle {
-            font-family: 'Arial Rounded MT', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: rgba(0, 0, 0, 0.77);
-            top: 0px;
-            left: 40px;
-            font-size: 40px;
-            position: relative;
-        }
-
-        .button {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            width: 150px;
-            height: 110px;
-        }
-
-        .button1 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
-            position: relative;
-            left: 0px;
-            bottom: 0px;
-        }
-
-            .button1:hover {
-                background-color: #ff9898;
-                color: white;
-            }
-
-        .button2 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
-            position: relative;
-            bottom: 0px;
-        }
-
-            .button2:hover {
-                background-color: #ff9898;
-                color: white;
-            }
-
-        .button3 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
-            position: relative;
-            bottom: 0px;
-        }
-
-            .button3:hover {
-                background-color: #ff9898;
-                color: white;
-            }
-
-        .button4 {
-            background-color: rgba(0, 0, 0, 0.60);
-            color: white;
-            position: relative;
-            bottom: 0px;
-        }
-
-            .button4:hover {
-                background-color: #ff9898;
-                color: white;
-            }
-
-        .category {
-            font-weight: 400;
-            font-style: italic;
-            position: relative;
-            top: -20px;
-            left: 200px;
-        }
-
-        .question {
-            font-family: Calibri;
-            padding-bottom: 30px;
-            color: rgba(0, 0, 0, 0.77);
-        }
-    </style>
 
 
 </body>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Newtonsoft.Json;
 using QuizMaster.Data;
 using QuizMaster.Models;
@@ -349,7 +350,7 @@ namespace QuizMaster.Controllers
         }
 
  
-        public IActionResult GenerateQuizQuestions()
+        public void GenerateQuizQuestions()
         {
             for (int i = 0; i < 50; i++)
             {
@@ -361,7 +362,66 @@ namespace QuizMaster.Controllers
             }
 
             var allQuizzes = _context.Quizzes.ToList();
-            return View(allQuizzes);
+        }   
+
+        public void compareAnswer1(string answer)
+        {
+
         }
+        public IActionResult ScienceEasy()
+        {
+            
+
+            return View();
+        }
+        public IActionResult ScienceMedium()
+        {
+            
+
+            return View();
+        }
+        public IActionResult ScienceHard()
+        {
+
+
+            return View();
+        }
+        public IActionResult MathEasy()
+        {
+            
+
+            return View();
+        }
+        public IActionResult MathMedium()
+        {
+            
+
+            return View();
+        }
+        public IActionResult MathHard()
+        {
+
+
+            return View();
+        }
+        public IActionResult HistoryEasy()
+        {
+            
+
+            return View();
+        }
+        public IActionResult HistoryMedium()
+        {
+            
+
+            return View();
+        }
+        public IActionResult HistoryHard()
+        {
+
+
+            return View();
+        }
+
     }
 }

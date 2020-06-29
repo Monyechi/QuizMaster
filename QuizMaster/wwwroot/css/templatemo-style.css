@@ -13,6 +13,26 @@ body {
 	font-size: 17px;
 	font-weight: 300;	
 }
+.logo2 {
+	width: 120px;
+	height: 141px;
+}
+.tile {
+	width: 290px;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.82);
+	font-size: 30px;
+	padding: 10px;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border-top-right-radius: 50px;
+	border-top-left-radius: 50px;
+}
+.tileText {
+	font-weight:700;
+	color:black;
+	font-size:larger;
+}
 
 ul { padding: 0; margin: 0; }
 p:last-child { margin-bottom: 0; }
