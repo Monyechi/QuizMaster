@@ -188,10 +188,15 @@ namespace QuizMaster.Controllers
             return View();
         }
         [HttpPost]
-         public async Task<IActionResult> CreateMessage([Bind("InstructorId,InstructorKey,FirstName,LastName,IdentityUserId")] Message message)
+        public IActionResult CreateMessage([Bind("Subject,MessageContent")] Message message)
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            //message.Reciever = instructor.InstructorName;
+            //message.Sender = instructor.DisplayName;
+            //_context.Messages.Add(message);
+            //_context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
@@ -199,6 +204,15 @@ namespace QuizMaster.Controllers
         {
 
             return View();
+        }
+        public async Task<IActionResult> ViewStudents()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            var instructorName = instructor.FirstName + " " + instructor.LastName;
+
+            var myStudents = _context.Students.Where(s => s.InstructorName == instructorName);
+            return View(myStudents);
         }
 
     }
