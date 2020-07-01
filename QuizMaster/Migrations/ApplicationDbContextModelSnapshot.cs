@@ -48,15 +48,15 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e28cbe81-aa97-4002-bcc8-565209c4f166",
-                            ConcurrencyStamp = "d3c94723-4a80-47c8-843d-aa923b18318c",
+                            Id = "bd2d0c10-582d-4d67-af4e-5bd5d70261eb",
+                            ConcurrencyStamp = "f29e20c0-e2ce-4731-9ab1-87db7ab40ff4",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "ab2921a8-24b5-48bb-b351-6a13689f5328",
-                            ConcurrencyStamp = "cac0b128-6acf-4f50-a16a-5a92b79a97b9",
+                            Id = "d8b1979e-daa5-4738-8cf4-b5a55e26b84e",
+                            ConcurrencyStamp = "36f52cb1-e51f-4be1-a2fd-1560a586f9f8",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         });
@@ -255,6 +255,30 @@ namespace QuizMaster.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Instructors");
+                });
+
+            modelBuilder.Entity("QuizMaster.Models.Message", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MessageContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reciever")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageID");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("QuizMaster.Models.Quiz", b =>

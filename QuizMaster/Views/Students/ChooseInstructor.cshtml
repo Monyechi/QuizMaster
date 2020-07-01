@@ -1,21 +1,15 @@
 ﻿@model QuizMaster.Models.Instructor
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "ChooseInstructor";
 }
 
-<h1>Details</h1>
+<h1>This is your instructor</h1>
 
 <div>
     <h4>Instructor</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InstructorKey)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InstructorKey)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -28,15 +22,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LastName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdentityUser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdentityUser.Id)
-        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.InstructorId">Edit</a> |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>

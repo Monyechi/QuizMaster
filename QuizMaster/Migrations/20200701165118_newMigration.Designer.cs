@@ -10,7 +10,7 @@ using QuizMaster.Data;
 namespace QuizMaster.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200625182621_newMigration")]
+    [Migration("20200701165118_newMigration")]
     partial class newMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,10 +50,17 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0c72e7f0-4c0a-4dfa-ba12-9a7edebcb9a0",
-                            ConcurrencyStamp = "5bde96d5-f6e7-45d8-a5d1-fad21526a04e",
+                            Id = "bd2d0c10-582d-4d67-af4e-5bd5d70261eb",
+                            ConcurrencyStamp = "f29e20c0-e2ce-4731-9ab1-87db7ab40ff4",
                             Name = "Student",
                             NormalizedName = "STUDENT"
+                        },
+                        new
+                        {
+                            Id = "d8b1979e-daa5-4738-8cf4-b5a55e26b84e",
+                            ConcurrencyStamp = "36f52cb1-e51f-4be1-a2fd-1560a586f9f8",
+                            Name = "Instructor",
+                            NormalizedName = "INSTRUCTOR"
                         });
                 });
 
@@ -226,6 +233,56 @@ namespace QuizMaster.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("QuizMaster.Models.Instructor", b =>
+                {
+                    b.Property<int>("InstructorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("InstructorKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("InstructorId");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("Instructors");
+                });
+
+            modelBuilder.Entity("QuizMaster.Models.Message", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MessageContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reciever")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageID");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("QuizMaster.Models.Quiz", b =>
                 {
                     b.Property<int>("QuizID")
@@ -293,10 +350,16 @@ namespace QuizMaster.Migrations
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("InstructorName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfileAvatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StudentKey")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StudentId");
@@ -355,6 +418,13 @@ namespace QuizMaster.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("QuizMaster.Models.Instructor", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 
             modelBuilder.Entity("QuizMaster.Models.Student", b =>

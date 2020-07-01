@@ -235,6 +235,23 @@ namespace QuizMaster.Controllers
 
             return View();
         }
+        public IActionResult SelectInstructor()
+        {
+            var instructors = _context.Instructors.ToList();
+
+            return View(instructors);
+        }
+        public IActionResult ChooseInstructor(string Id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var student = _context.Students.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            var instructor = _context.Instructors.Where(c => c.InstructorKey == Id).SingleOrDefault();
+            var instructorName = instructor.FirstName + " " + instructor.LastName;
+            student.InstructorName = instructorName;
+
+            return View(instructor);
+        }
         public string GenerateRandomAlphanumericString()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

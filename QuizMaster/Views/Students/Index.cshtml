@@ -41,7 +41,7 @@
 
 <body>
 
-    <!-- Content -->
+     <!-- Content -->
     <div class="cd-hero">
 
         <!-- Navigation -->
@@ -91,12 +91,24 @@
                         .button2 {
                             background-color: rgba(255, 255, 255, 0.55);
                         }
+
+                        .wombo {
+                            position: absolute;
+                            right: 0px;
+                            bottom: 0px;
+                        }
                     </style>
                     <form class="logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button class="button2" type="submit"><img class="img" src="https://cdn.onlinewebfonts.com/svg/img_356268.png" width="57" height="62" /></button>
                     </form>
 
                     <div class="container-fluid js-tm-page-content tm-page-1" data-page-no="1">
+
+                        <div class="wombo">
+                            <a asp-action="SendMessage"><p>send message</p></a>
+                            <a asp-action="CheckMessages"><p>check messages</p></a>
+                            <a asp-action="SelectInstructor"><p>select instructor</p></a>
+                        </div>
 
                         <div class="row">
 
@@ -222,17 +234,17 @@
         </ul> <!-- .cd-hero-slider -->
         @*<footer class="tm-footer">
 
-                <div class="tm-social-icons-container">
-                    <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
-                    <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
-                    <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
-                </div>
+            <div class="tm-social-icons-container">
+                <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
+                <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+            </div>
 
-                <p hidden class="tm-copyright-text">Copyright &copy; 2016 Your Company - Design: <a href="https://plus.google.com/+templatemo" target="_blank">Templatemo</a></p>
+            <p hidden class="tm-copyright-text">Copyright &copy; 2016 Your Company - Design: <a href="https://plus.google.com/+templatemo" target="_blank">Templatemo</a></p>
 
-            </footer>*@
+        </footer>*@
 
     </div> <!-- .cd-hero -->
     <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->

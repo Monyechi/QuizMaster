@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using QuizMaster.Models;
 
 namespace QuizMaster.Controllers
 {
+    [Authorize(Roles = "Instructor")]
     public class InstructorsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -180,5 +182,19 @@ namespace QuizMaster.Controllers
             var finalString = new String(stringChars);
             return finalString;
         }
+        public async Task<IActionResult> CreateMessage()
+        {
+           
+            return View();
+        }
+        [HttpPost]
+         public async Task<IActionResult> CreateMessage([Bind("InstructorId,InstructorKey,FirstName,LastName,IdentityUserId")] Message message)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            return View(message);
+        }
+
     }
 }

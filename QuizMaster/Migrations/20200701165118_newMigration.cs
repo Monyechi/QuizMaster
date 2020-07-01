@@ -47,6 +47,22 @@ namespace QuizMaster.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    MessageID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Subject = table.Column<string>(nullable: true),
+                    MessageContent = table.Column<string>(nullable: true),
+                    Sender = table.Column<string>(nullable: true),
+                    Reciever = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.MessageID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Quizzes",
                 columns: table => new
                 {
@@ -177,15 +193,39 @@ namespace QuizMaster.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Instructors",
+                columns: table => new
+                {
+                    InstructorId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    InstructorKey = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    IdentityUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Instructors", x => x.InstructorId);
+                    table.ForeignKey(
+                        name: "FK_Instructors_AspNetUsers_IdentityUserId",
+                        column: x => x.IdentityUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Students",
                 columns: table => new
                 {
                     StudentId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentKey = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     DisplayName = table.Column<string>(nullable: true),
                     ProfileAvatar = table.Column<string>(nullable: true),
+                    InstructorName = table.Column<string>(nullable: true),
                     Grade = table.Column<string>(nullable: true),
                     IdentityUserId = table.Column<string>(nullable: true)
                 },
@@ -203,7 +243,12 @@ namespace QuizMaster.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "0c72e7f0-4c0a-4dfa-ba12-9a7edebcb9a0", "5bde96d5-f6e7-45d8-a5d1-fad21526a04e", "Student", "STUDENT" });
+                values: new object[] { "bd2d0c10-582d-4d67-af4e-5bd5d70261eb", "f29e20c0-e2ce-4731-9ab1-87db7ab40ff4", "Student", "STUDENT" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "d8b1979e-daa5-4738-8cf4-b5a55e26b84e", "36f52cb1-e51f-4be1-a2fd-1560a586f9f8", "Instructor", "INSTRUCTOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -245,6 +290,11 @@ namespace QuizMaster.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Instructors_IdentityUserId",
+                table: "Instructors",
+                column: "IdentityUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Students_IdentityUserId",
                 table: "Students",
                 column: "IdentityUserId");
@@ -266,6 +316,12 @@ namespace QuizMaster.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Instructors");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "Quizzes");
