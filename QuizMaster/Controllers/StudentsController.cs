@@ -241,6 +241,14 @@ namespace QuizMaster.Controllers
             return View();         
            
         }
+        public IActionResult ViewMessages()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var student = _context.Students.Where(s => s.IdentityUserId == userId).SingleOrDefault();
+            var messages = _context.Messages.Where(m => m.Reciever == student.DisplayName).ToList();
+            return View(messages);         
+           
+        }
         [HttpPost]
         public IActionResult Message([Bind("Subject,MessageContent")] Message message)
         {
