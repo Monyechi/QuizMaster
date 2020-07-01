@@ -175,194 +175,7 @@ namespace QuizMaster.Controllers
         public IActionResult SearchArticle()
         {
             return View();
-        }
-        public void GenerateQuestionGN()
-        {
-            Quiz quiz = new Quiz();
-
-            WebClient client = new WebClient();
-            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&category=9&difficulty=hard&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
-
-            quiz.Question = dobj.results[0].question;
-            quiz.Category = dobj.results[0].category;
-            quiz.Difficulty = dobj.results[0].Difficulty;
-            quiz.CorrectAnswer = dobj.results[0].correct_answer;
-            quiz.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
-            quiz.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
-            quiz.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
-
-            string[] answers = new string[4];
-            answers[0] = quiz.CorrectAnswer;
-            answers[1] = quiz.WrongAnswer1;
-            answers[2] = quiz.WrongAnswer2;
-            answers[3] = quiz.WrongAnswer3;
-
-            var shuffledArray = ShuffleArray(answers);
-            quiz.Answer1 = shuffledArray[0];
-            quiz.Answer2 = shuffledArray[1];
-            quiz.Answer3 = shuffledArray[2];
-            quiz.Answer4 = shuffledArray[3];
-
-            _context.Quizzes.Add(quiz);
-            _context.SaveChanges();
-        }
-        public void GenerateQuestionHistory()
-        {
-            Quiz quiz = new Quiz();
-
-            WebClient client = new WebClient();
-            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
-
-            quiz.Question = dobj.results[0].question;
-            quiz.Category = dobj.results[0].category;
-            quiz.Difficulty = dobj.results[0].Difficulty;
-            quiz.CorrectAnswer = dobj.results[0].correct_answer;
-            quiz.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
-            quiz.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
-            quiz.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
-
-            string[] answers = new string[4];
-            answers[0] = quiz.CorrectAnswer;
-            answers[1] = quiz.WrongAnswer1;
-            answers[2] = quiz.WrongAnswer2;
-            answers[3] = quiz.WrongAnswer3;
-
-            var shuffledArray = ShuffleArray(answers);
-            quiz.Answer1 = shuffledArray[0];
-            quiz.Answer2 = shuffledArray[1];
-            quiz.Answer3 = shuffledArray[2];
-            quiz.Answer4 = shuffledArray[3];
-
-            _context.Quizzes.Add(quiz);
-            _context.SaveChanges();
-        }
-        public void GenerateQuestionScience()
-        {
-            Quiz quiz = new Quiz();
-
-            WebClient client = new WebClient();
-            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&category=17&difficulty=medium&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
-
-            quiz.Question = dobj.results[0].question;
-            quiz.Category = dobj.results[0].category;
-            quiz.Difficulty = dobj.results[0].Difficulty;
-            quiz.CorrectAnswer = dobj.results[0].correct_answer;
-            quiz.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
-            quiz.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
-            quiz.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
-
-            string[] answers = new string[4];
-            answers[0] = quiz.CorrectAnswer;
-            answers[1] = quiz.WrongAnswer1;
-            answers[2] = quiz.WrongAnswer2;
-            answers[3] = quiz.WrongAnswer3;
-
-            var shuffledArray = ShuffleArray(answers);
-            quiz.Answer1 = shuffledArray[0];
-            quiz.Answer2 = shuffledArray[1];
-            quiz.Answer3 = shuffledArray[2];
-            quiz.Answer4 = shuffledArray[3];
-
-            _context.Quizzes.Add(quiz);
-            _context.SaveChanges();
-        }
-        public void GenerateQuestionMath()
-        {
-            Quiz quiz = new Quiz();
-
-            WebClient client = new WebClient();
-            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&category=19&difficulty=medium&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
-
-            quiz.Question = dobj.results[0].question;
-            quiz.Category = dobj.results[0].category;
-            quiz.Difficulty = dobj.results[0].Difficulty;
-            quiz.CorrectAnswer = dobj.results[0].correct_answer;
-            quiz.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
-            quiz.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
-            quiz.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
-
-            string[] answers = new string[4];
-            answers[0] = quiz.CorrectAnswer;
-            answers[1] = quiz.WrongAnswer1;
-            answers[2] = quiz.WrongAnswer2;
-            answers[3] = quiz.WrongAnswer3;
-
-            var shuffledArray = ShuffleArray(answers);
-            quiz.Answer1 = shuffledArray[0];
-            quiz.Answer2 = shuffledArray[1];
-            quiz.Answer3 = shuffledArray[2];
-            quiz.Answer4 = shuffledArray[3];
-
-            _context.Quizzes.Add(quiz);
-            _context.SaveChanges();
-        }
-        public void GenerateQuestionRandom()
-        {
-            Quiz randCat = new Quiz();
-
-            WebClient client = new WebClient();
-            string json = client.DownloadString("https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(json);
-
-            randCat.Question = dobj.results[0].question;
-            randCat.Category = dobj.results[0].category;
-            randCat.Difficulty = dobj.results[0].Difficulty;
-            randCat.CorrectAnswer = dobj.results[0].correct_answer;
-            randCat.WrongAnswer1 = dobj.results[0].incorrect_answers[0];
-            randCat.WrongAnswer2 = dobj.results[0].incorrect_answers[1];
-            randCat.WrongAnswer3 = dobj.results[0].incorrect_answers[2];
-
-            string[] answers = new string[4];
-            answers[0] = randCat.CorrectAnswer;
-            answers[1] = randCat.WrongAnswer1;
-            answers[2] = randCat.WrongAnswer2;
-            answers[3] = randCat.WrongAnswer3;
-
-            var shuffledArray = ShuffleArray(answers);
-            randCat.Answer1 = shuffledArray[0];
-            randCat.Answer2 = shuffledArray[1];
-            randCat.Answer3 = shuffledArray[2];
-            randCat.Answer4 = shuffledArray[3];
-
-            _context.Quizzes.Add(randCat);
-            _context.SaveChanges();
-        }
-        public static string[] ShuffleArray(string[] array)
-        {
-            int n = array.Length;
-            Random rand = new Random();
-
-            for (int i = 0; i < n; i++)
-            {
-                swap(array, i, i + rand.Next(n - i));
-            }
-            return array;
-        }
-        public static void swap(string[] array, int a, int b)
-        {
-            string temp = array[a];
-            array[a] = array[b];
-            array[b] = temp;
-        }
-
- 
-        public void GenerateQuizQuestions()
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                GenerateQuestionGN();
-                GenerateQuestionHistory();
-                GenerateQuestionMath();
-                GenerateQuestionRandom();
-                GenerateQuestionScience();
-            }
-
-            var allQuizzes = _context.Quizzes.ToList();
-        }   
+        }         
 
         public void compareAnswer1(string answer)
         {
@@ -421,6 +234,20 @@ namespace QuizMaster.Controllers
 
 
             return View();
+        }
+        public string GenerateRandomAlphanumericString()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[50];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+            return finalString;
         }
 
     }

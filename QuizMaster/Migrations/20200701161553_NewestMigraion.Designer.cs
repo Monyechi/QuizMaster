@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizMaster.Data;
 
 namespace QuizMaster.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200701161553_NewestMigraion")]
+    partial class NewestMigraion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace QuizMaster.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e28cbe81-aa97-4002-bcc8-565209c4f166",
-                            ConcurrencyStamp = "d3c94723-4a80-47c8-843d-aa923b18318c",
+                            Id = "965fea85-11d8-42fc-901c-d84dda8d8523",
+                            ConcurrencyStamp = "39192297-532a-4e9c-b672-f4e54379e9ac",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "ab2921a8-24b5-48bb-b351-6a13689f5328",
-                            ConcurrencyStamp = "cac0b128-6acf-4f50-a16a-5a92b79a97b9",
+                            Id = "f237ac52-e0f8-4dc8-aad1-42048ea6fddb",
+                            ConcurrencyStamp = "86cfeef6-a8e1-4b60-be1d-2af20d4fc3e3",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         });
@@ -323,9 +325,6 @@ namespace QuizMaster.Migrations
 
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("InstructorName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");

@@ -8,17 +8,13 @@ using System.Threading.Tasks;
 
 namespace QuizMaster.Models
 {
-    public class Student
+    public class Instructor
     {
         [Key]
-        public int StudentId { get; set; }
-        public string StudentKey { get; set; }
+        public int InstructorId { get; set; }
+        public string InstructorKey { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DisplayName { get; set; }
-        public string ProfileAvatar { get; set; }
-        public string InstructorName { get; set; }
-        public string Grade { get; set; }
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }

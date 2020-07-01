@@ -25,6 +25,11 @@ namespace QuizMaster.ActionFilters
                     context.Result = new RedirectToActionResult("Index",
                     "Students", null);
                 }
+                else if (_claimsPrincipal.IsInRole("Instructor"))
+                {
+                    context.Result = new RedirectToActionResult("Index",
+                    "Instructors", null);
+                }
             }
         }
         public void OnActionExecuted(ActionExecutedContext context)

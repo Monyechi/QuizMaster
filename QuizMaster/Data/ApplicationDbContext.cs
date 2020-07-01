@@ -19,15 +19,24 @@ namespace QuizMaster.Data
             base.OnModelCreating(builder);
             builder.Entity<IdentityRole>()
             .HasData(
+           new IdentityRole
+           {
+               Name = "Student",
+               NormalizedName = "STUDENT"
+
+           },
+
             new IdentityRole
             {
-                Name = "Student",
-                NormalizedName = "STUDENT"
+                Name = "Instructor",
+                NormalizedName = "INSTRUCTOR"
             }
             );
+            
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
     }
 }
