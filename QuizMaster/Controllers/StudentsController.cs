@@ -235,6 +235,26 @@ namespace QuizMaster.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult Message()
+        {
+            return View();         
+           
+        }
+        [HttpPost]
+        public IActionResult Message([Bind("Subject,MessageContent")] Message message)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var student = _context.Students.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+           
+            message.Reciever = student.InstructorName;
+            message.Sender = student.DisplayName;
+            _context.Messages.Add(message);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult SelectInstructor()
         {
             var instructors = _context.Instructors.ToList();
@@ -249,6 +269,7 @@ namespace QuizMaster.Controllers
             var instructor = _context.Instructors.Where(c => c.InstructorKey == Id).SingleOrDefault();
             var instructorName = instructor.FirstName + " " + instructor.LastName;
             student.InstructorName = instructorName;
+            _context.SaveChanges();
 
             return View(instructor);
         }

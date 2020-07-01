@@ -193,7 +193,12 @@ namespace QuizMaster.Controllers
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
 
-            return View(message);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Messages()
+        {
+
+            return View();
         }
 
     }
