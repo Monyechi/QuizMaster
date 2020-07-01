@@ -200,7 +200,7 @@ namespace QuizMaster.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Messages()
+        public async Task<IActionResult> CheckMessages()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var instructor = _context.Instructors.Where(s => s.IdentityUserId == userId).SingleOrDefault();
@@ -218,6 +218,30 @@ namespace QuizMaster.Controllers
 
             var myStudents = _context.Students.Where(s => s.InstructorName == instructorName);
             return View(myStudents);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SendMessage(string? id)
+        {
+            Message message = new Message();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var instructor = _context.Instructors.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            var instructorName = instructor.FirstName + " " + instructor.LastName;
+
+            var student = _context.Students.Where(s => s.DisplayName == id).SingleOrDefault();
+
+            message.Reciever = student.DisplayName;
+            message.Sender = instructorName;
+
+            return View(message);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendMessage([Bind("MessageID,Subject,MessageContent,Sender,Reciever")] Message message)
+        {
+            
+            _context.Messages.Add(message);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
 
     }

@@ -16,9 +16,6 @@
                 @Html.DisplayNameFor(model => model.StudentId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StudentKey)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
@@ -36,9 +33,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Grade)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdentityUserId)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -47,9 +41,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StudentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentKey)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -69,13 +60,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Grade)
             </td>
+        
             <td>
-                @Html.DisplayFor(modelItem => item.IdentityUserId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Message", "SendMessage", new { id=item.DisplayName }) |
             </td>
         </tr>
 }
