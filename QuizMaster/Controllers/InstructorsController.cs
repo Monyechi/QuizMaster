@@ -202,8 +202,13 @@ namespace QuizMaster.Controllers
         }
         public async Task<IActionResult> Messages()
         {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var instructor = _context.Instructors.Where(s => s.IdentityUserId == userId).SingleOrDefault();
+            var instructorName = instructor.FirstName + " " + instructor.LastName;
 
-            return View();
+            var messages = _context.Messages.Where(m => m.Reciever == instructorName).ToList();
+
+            return View(messages);
         }
         public async Task<IActionResult> ViewStudents()
         {
