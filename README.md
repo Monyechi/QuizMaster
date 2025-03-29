@@ -43,6 +43,12 @@ This project provides users with a fun and challenging quiz experience using rea
 4. A new question loads automatically after a short delay  
 
 ---
+## 📸 Screenshots
+
+### 🏠 Home Screen
+![Home Screen](assets/screenshot1.png)
+
+---
 
 ## 🧩 Sample Code Snippet
 
