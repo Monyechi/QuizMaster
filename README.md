@@ -45,8 +45,8 @@ This project provides users with a fun and challenging quiz experience using rea
 ---
 ## 📸 Screenshots
 
-### 🏠 Home Screen
-![Home Screen](assets/screenshot1.png)
+### 🏠 Question in Progress
+![Quiz in Progress](assets/screenshot1.png)
 
 ---
 
